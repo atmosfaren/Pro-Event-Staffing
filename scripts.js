@@ -25,7 +25,7 @@ function closePopup(popupElement) {
 
 // Show the contact form popup when 'CONTACT' is clicked in the desktop menu
 if (contactLink) {
-    contactLink.addEventListener('click', function(e) {
+    contactLink.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(popup);
     });
@@ -33,7 +33,7 @@ if (contactLink) {
 
 // Show the contact form popup when the footer contact link is clicked in the desktop menu
 if (contactFooterLink) {
-    contactFooterLink.addEventListener('click', function(e) {
+    contactFooterLink.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(popup);
     });
@@ -41,7 +41,7 @@ if (contactFooterLink) {
 
 // Show the contact form popup when the floating button is clicked in the desktop menu
 if (floatingButton) {
-    floatingButton.addEventListener('click', function(e) {
+    floatingButton.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(popup);
     });
@@ -50,7 +50,7 @@ if (floatingButton) {
 // Show the contact form popup when the link is clicked in the mobile menu
 const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
 if (contactLinkMobile) {
-    contactLinkMobile.addEventListener('click', function(e) {
+    contactLinkMobile.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(popup);
     });
@@ -58,7 +58,7 @@ if (contactLinkMobile) {
 
 // Show the 'JOIN US' popup when 'Join Us' is clicked in the desktop menu
 if (joinUsLink) {
-    joinUsLink.addEventListener('click', function(e) {
+    joinUsLink.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -66,7 +66,7 @@ if (joinUsLink) {
 
 // Show the 'JOIN US' popup when the footer 'Join Us' link is clicked in the desktop menu
 if (joinUsFooterLink) {
-    joinUsFooterLink.addEventListener('click', function(e) {
+    joinUsFooterLink.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -75,7 +75,7 @@ if (joinUsFooterLink) {
 // Show the 'JOIN US' popup when the link is clicked in the mobile menu
 const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
 if (joinUsLinkMobile) {
-    joinUsLinkMobile.addEventListener('click', function(e) {
+    joinUsLinkMobile.addEventListener('touchstart', function(e) { // changed to touchstart
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -83,17 +83,18 @@ if (joinUsLinkMobile) {
 
 // Close the contact popup when the close button is clicked
 if (closeButton) {
-    closeButton.addEventListener('click', function() {
+    closeButton.addEventListener('touchstart', function() { // changed to touchstart
         closePopup(popup);
     });
 }
 
 // Close the contact popup when clicking outside the popup content
-document.addEventListener('click', function(e) {
+document.addEventListener('touchstart', function(e) { // changed to touchstart
     if (popup && !popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton && e.target !== contactLinkMobile) {
         closePopup(popup);
     }
 });
+
 
 // Handle form submission (this is where we show the confirmation popup)
 if (form) {
