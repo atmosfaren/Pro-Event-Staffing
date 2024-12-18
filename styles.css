@@ -701,6 +701,7 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: left; 
     width: 100%;
     animation: fadeIn 2s ease-in-out;
+    will-change: opacity;
     -webkit-animation: fadeIn 2s ease-in-out; /* Keep the -webkit animation */
 }
 
