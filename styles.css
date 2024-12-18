@@ -1442,7 +1442,7 @@ body {
     color: #000;
 }
 
-/* Burger-menu för mobil */
+/* Burger-menu for mobile devices */
 @media screen and (max-width: 376px) {
     .burger-menu {
         display: flex;
@@ -1455,13 +1455,13 @@ body {
     }
 
     .burger-line {
-        height: 1px;
+        height: 2px; /* Adjusted to make lines more visible */
         background-color: #fff;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .burger-menu .burger-line:nth-child(2) {
-        opacity: 0;
+        opacity: 1; /* Ensure second line is visible by default */
     }
 
     .burger-menu.open .burger-line {
@@ -1484,9 +1484,9 @@ body {
         top: -8px;
     }
 
-    /* Visa mobilmenyn när burger-menyn öppnas */
+    /* Show mobile menu when burger-menu is open */
     .mobile-menu {
-        display: block;
+        display: none; /* Initially hide the menu */
         position: fixed;
         top: 0;
         right: 0;
@@ -1501,13 +1501,14 @@ body {
     }
 
     .mobile-menu.open {
+        display: block; /* Display the menu when open */
         transform: translateX(0);
     }
 
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        align-items: left;
+        align-items: flex-start;
         gap: 40px;
         list-style: none;
         padding: 0;
@@ -1539,7 +1540,6 @@ body {
         align-self: flex-start;
     }
 }
-
 
 /* Små tablets och mobiler (376px till 768px) */
 @media (min-width: 376px) and (max-width: 768px) {
