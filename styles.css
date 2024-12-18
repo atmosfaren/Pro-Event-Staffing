@@ -688,7 +688,7 @@ h1, h2, h3, h4, h5, h6, p {
     margin-top: 5px;
 }
 
-/* Clients Section */
+/* Klient-sektion */
 #clients {
     padding: 0 30px;
     background-color: #ffffff;
@@ -699,10 +699,10 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
 }
 
-/* Klientlistan */
+/* Klient-lista */
 .client-list {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
@@ -711,7 +711,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
 }
 
-/* Position the SEE ALL button at the bottom left of the clients section */
+/* SEE ALL knapp */
 #clients .see-all-container {
     position: absolute;  
     bottom: 0;  
@@ -720,7 +720,6 @@ h1, h2, h3, h4, h5, h6, p {
     padding-bottom: 30px; 
 }
 
-/* Position the button to the left and at the bottom */
 .secondary-btn.see-all {
     position: absolute; 
     bottom: 0;
@@ -744,70 +743,25 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .secondary-btn .arrow {
-    font-size: 12px;
+    font-size: 16px;
     transform: translateX(4px);
 }
 
-/* Clients Section */
-#new-clients {
-    padding: 0 20px;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;  /* För att placera titeln ovanför bilderna */
-    justify-content: center;
-    max-width: 1430px;
-    margin: 0 auto;
-    position: relative;
-    margin-top: -20px;
-}
-
-/* Klientlistan */
-.new-client-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;  /* Justera bilderna så att de hamnar i mitten */
+/* Styling för alla knappar med pil */
+button.submit-btn,
+.secondary-btn a,
+footer a {
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    width: 100%;
 }
 
-/* Bilder ska vara responsiva och anpassa sig efter skärmens storlek */
-.new-client-list img {
-    max-width: 150px;
-    width: 25%;
-    height: auto;
+button.submit-btn .arrow,
+.secondary-btn .arrow,
+footer a .arrow {
+    font-size: 16px; /* Större pil för konsekvens */
+    margin-left: 5px; /* Lägger till lite avstånd mellan text och pil */
+    transform: translateX(4px); /* Skiftar pilen till höger */
 }
-
-/* Responsiv design för mindre skärmar */
-@media (max-width: 768px) {
-    .new-client-list img {
-        max-width: 150px;  /* Minska storleken på bilderna på mindre skärmar */
-    }
-}
-
-/* Titel */
-#new-clients h2 {
-    text-align: left;
-    font-size: 12px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* För att centrera sektionen på skärmen */
-#new-clients {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    margin: 0 auto;
-}
-
-/* Justering för mindre skärmar */
-@media (max-width: 480px) {
-    #new-clients h4 {
-        font-size: 14px;  /* Minska textstorleken på mindre skärmar */
-    }
-}
-
 
 /* Team Image Section */
 #team {
@@ -1230,10 +1184,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Footer */
 footer {
-    text-align: left; /* För att vänsterjustera texten */
+    text-align: left;
     padding: 20px;
-    max-width: 1430px;  /* Begränsa maxbredden */
-    margin: 0 auto; /* Centrera footer-sektionen horisontellt */
+    max-width: 1430px;
+    margin: 0 auto;
     padding-top: 200px;
     padding-bottom: 100px;
     background-color: #fff;
@@ -1246,7 +1200,7 @@ footer {
 footer .footer-content {
     display: flex;
     align-items: left;
-    justify-content: flex-start; /* Placera innehållet längst till vänster */
+    justify-content: flex-start;
     gap: 100px;
 }
 
@@ -1257,7 +1211,7 @@ footer ul {
     display: flex;
     gap: 100px;
     margin: 0;
-    justify-content: flex-start; /* Placera listobjekten längst till vänster */
+    justify-content: flex-start;
 }
 
 /* Länkar i footern */
@@ -1265,10 +1219,17 @@ footer a {
     color: #000;
     text-decoration: none;
     font-size: 14px;
+    display: flex;
+    align-items: center;
 }
 
 footer a:hover {
     color: #555;
+}
+
+footer a .arrow {
+    font-size: 16px;
+    margin-left: 5px;
 }
 
 /* Footer rubrik */
@@ -1277,20 +1238,6 @@ footer h3 {
     font-size: 12px;
     margin: 0;
 }
-
-.footer-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* För att se till att copyrighttexten ligger i botten på sidan på större skärmar */
-.footer-copyright {
-    text-align: center;
-    margin-top: 12px;
-}
-
-/* Responsive Media Queries */
 
 /* Små tablets och mobiler (376px till 768px) */
 @media (max-width: 768px) {
