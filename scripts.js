@@ -13,79 +13,86 @@ const joinUsPopup = document.getElementById('join-us-popup');
 const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
 const joinUsForm = document.getElementById('join-us-form');
 
+// Function to open a popup
+function openPopup(popupElement) {
+    popupElement.classList.add('show');
+}
+
+// Function to close a popup
+function closePopup(popupElement) {
+    popupElement.classList.remove('show');
+}
+
 // Show the contact form popup when 'CONTACT' is clicked
 contactLink.addEventListener('click', function(e) {
     e.preventDefault(); 
-    popup.classList.add('show'); 
+    openPopup(popup); 
 });
 
 // Show the contact form popup when the footer contact link is clicked
 contactFooterLink.addEventListener('click', function(e) {
     e.preventDefault(); 
-    popup.classList.add('show'); 
+    openPopup(popup); 
 });
 
 // Show the contact form popup when the floating button is clicked
 floatingButton.addEventListener('click', function(e) {
     e.preventDefault(); 
-    popup.classList.add('show'); 
+    openPopup(popup); 
 });
 
 // Close the contact popup when the close button is clicked
 closeButton.addEventListener('click', function() {
-    popup.classList.remove('show'); 
+    closePopup(popup); 
 });
 
 // Close the contact popup when clicking outside the popup content
 document.addEventListener('click', function(e) {
     if (!popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton) {
-        popup.classList.remove('show');
+        closePopup(popup);
     }
 });
 
 // Handle form submission (this is where we show the confirmation popup)
 form.addEventListener('submit', function(e) {
     e.preventDefault(); 
-
-    popup.classList.remove('show');
-    submitPopup.classList.add('show');
+    closePopup(popup);
+    openPopup(submitPopup);
 });
 
 // Close the confirmation popup when the 'CLOSE' button is clicked
 closeSubmitButton.addEventListener('click', function() {
-    submitPopup.classList.remove('show'); 
+    closePopup(submitPopup); 
 });
 
 // Show the 'JOIN US' popup when 'Join Us' is clicked
 joinUsLink.addEventListener('click', function(e) {
     e.preventDefault(); 
-    joinUsPopup.classList.add('show'); 
+    openPopup(joinUsPopup); 
 });
 
 // Show the 'JOIN US' popup when the footer 'Join Us' link is clicked
 joinUsFooterLink.addEventListener('click', function(e) {
     e.preventDefault(); 
-    joinUsPopup.classList.add('show'); 
+    openPopup(joinUsPopup); 
 });
 
 // Close the 'JOIN US' popup when the close button is clicked
 closeJoinUsButton.addEventListener('click', function() {
-    joinUsPopup.classList.remove('show'); 
+    closePopup(joinUsPopup); 
 });
 
 // Close 'JOIN US' popup when clicking outside the popup content
 document.addEventListener('click', function(e) {
     if (!joinUsPopup.contains(e.target) && e.target !== joinUsLink && e.target !== joinUsFooterLink) {
-        joinUsPopup.classList.remove('show');
+        closePopup(joinUsPopup);
     }
 });
 
 // Handle form submission for 'Join Us' popup
 joinUsForm.addEventListener('submit', function(e) {
     e.preventDefault(); 
-
-    joinUsPopup.classList.remove('show');
-
+    closePopup(joinUsPopup);
     alert("Thank you for your application. We'll get back to you shortly.");
 });
 
@@ -110,6 +117,15 @@ document.addEventListener('click', function(e) {
 // Close mobile menu when clicking on any menu link
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    });
+});
+
+// Add an event listener for all desktop menu links
+document.querySelectorAll('.desktop-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        // Close the mobile menu when a link is clicked on desktop
         mobileMenu.classList.remove('open');
         burgerMenu.classList.remove('open');
     });
