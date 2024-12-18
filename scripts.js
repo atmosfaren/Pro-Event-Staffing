@@ -1,7 +1,7 @@
 // Select the elements
 const contactLink = document.getElementById('contact-link');
-const contactFooterLink = document.getElementById('contact-footer-link');  // Footer contact link
-const floatingButton = document.querySelector('.floating-btn'); 
+const contactFooterLink = document.getElementById('contact-footer-link'); // Footer contact link
+const floatingButton = document.querySelector('.floating-btn');
 const popup = document.getElementById('contact-popup');
 const closeButton = document.querySelector('.close-btn');
 const submitPopup = document.getElementById('submit-popup');
@@ -23,92 +23,132 @@ function closePopup(popupElement) {
     popupElement.classList.remove('show');
 }
 
-// Show the contact form popup when 'CONTACT' is clicked
-contactLink.addEventListener('click', function(e) {
-    e.preventDefault(); 
-    openPopup(popup); 
-});
+// Show the contact form popup when 'CONTACT' is clicked in the desktop menu
+if (contactLink) {
+    contactLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
 
-// Show the contact form popup when the footer contact link is clicked
-contactFooterLink.addEventListener('click', function(e) {
-    e.preventDefault(); 
-    openPopup(popup); 
-});
+// Show the contact form popup when the footer contact link is clicked in the desktop menu
+if (contactFooterLink) {
+    contactFooterLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
 
-// Show the contact form popup when the floating button is clicked
-floatingButton.addEventListener('click', function(e) {
-    e.preventDefault(); 
-    openPopup(popup); 
-});
+// Show the contact form popup when the floating button is clicked in the desktop menu
+if (floatingButton) {
+    floatingButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the contact form popup when the link is clicked in the mobile menu
+const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
+if (contactLinkMobile) {
+    contactLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the 'JOIN US' popup when 'Join Us' is clicked in the desktop menu
+if (joinUsLink) {
+    joinUsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
+
+// Show the 'JOIN US' popup when the footer 'Join Us' link is clicked in the desktop menu
+if (joinUsFooterLink) {
+    joinUsFooterLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
+
+// Show the 'JOIN US' popup when the link is clicked in the mobile menu
+const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
+if (joinUsLinkMobile) {
+    joinUsLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
 
 // Close the contact popup when the close button is clicked
-closeButton.addEventListener('click', function() {
-    closePopup(popup); 
-});
+if (closeButton) {
+    closeButton.addEventListener('click', function() {
+        closePopup(popup);
+    });
+}
 
 // Close the contact popup when clicking outside the popup content
 document.addEventListener('click', function(e) {
-    if (!popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton) {
+    if (popup && !popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton && e.target !== contactLinkMobile) {
         closePopup(popup);
     }
 });
 
 // Handle form submission (this is where we show the confirmation popup)
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    closePopup(popup);
-    openPopup(submitPopup);
-});
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup(popup);
+        openPopup(submitPopup);
+    });
+}
 
 // Close the confirmation popup when the 'CLOSE' button is clicked
-closeSubmitButton.addEventListener('click', function() {
-    closePopup(submitPopup); 
-});
-
-// Show the 'JOIN US' popup when 'Join Us' is clicked
-joinUsLink.addEventListener('click', function(e) {
-    e.preventDefault(); 
-    openPopup(joinUsPopup); 
-});
-
-// Show the 'JOIN US' popup when the footer 'Join Us' link is clicked
-joinUsFooterLink.addEventListener('click', function(e) {
-    e.preventDefault(); 
-    openPopup(joinUsPopup); 
-});
+if (closeSubmitButton) {
+    closeSubmitButton.addEventListener('click', function() {
+        closePopup(submitPopup);
+    });
+}
 
 // Close the 'JOIN US' popup when the close button is clicked
-closeJoinUsButton.addEventListener('click', function() {
-    closePopup(joinUsPopup); 
-});
+if (closeJoinUsButton) {
+    closeJoinUsButton.addEventListener('click', function() {
+        closePopup(joinUsPopup);
+    });
+}
 
 // Close 'JOIN US' popup when clicking outside the popup content
 document.addEventListener('click', function(e) {
-    if (!joinUsPopup.contains(e.target) && e.target !== joinUsLink && e.target !== joinUsFooterLink) {
+    if (joinUsPopup && !joinUsPopup.contains(e.target) && e.target !== joinUsLink && e.target !== joinUsFooterLink && e.target !== joinUsLinkMobile) {
         closePopup(joinUsPopup);
     }
 });
 
 // Handle form submission for 'Join Us' popup
-joinUsForm.addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    closePopup(joinUsPopup);
-    alert("Thank you for your application. We'll get back to you shortly.");
-});
+if (joinUsForm) {
+    joinUsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup(joinUsPopup);
+        alert("Thank you for your application. We'll get back to you shortly.");
+    });
+}
 
 // Get elements for burger menu and mobile menu
 const burgerMenu = document.getElementById('burger-menu');
 const mobileMenu = document.getElementById('mobile-menu');
 
 // Toggle the mobile menu and burger animation
-burgerMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    burgerMenu.classList.toggle('open');
-});
+if (burgerMenu) {
+    burgerMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        burgerMenu.classList.toggle('open');
+    });
+}
 
 // Close mobile menu when clicking outside the mobile menu content
 document.addEventListener('click', function(e) {
-    if (!mobileMenu.contains(e.target) && e.target !== burgerMenu) {
+    if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== burgerMenu) {
         mobileMenu.classList.remove('open');
         burgerMenu.classList.remove('open');
     }
@@ -121,6 +161,7 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
         burgerMenu.classList.remove('open');
     });
 });
+
 
 // Add an event listener for all desktop menu links
 document.querySelectorAll('.desktop-menu a').forEach(link => {
