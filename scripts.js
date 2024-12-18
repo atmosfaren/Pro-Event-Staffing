@@ -13,6 +13,12 @@ const joinUsPopup = document.getElementById('join-us-popup');
 const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
 const joinUsForm = document.getElementById('join-us-form');
 
+if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+    // Apply iOS-specific styles or fixes
+    document.body.classList.add('ios-device');
+}
+
+
 // Function to open a popup
 function openPopup(popupElement) {
     popupElement.classList.add('show');
