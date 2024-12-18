@@ -717,51 +717,50 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
 }
 
-/* Position the SEE ALL button at the bottom left of the clients section */
+/* SEE ALL knapp */
 #clients .see-all-container {
-    position: absolute;  
-    bottom: 0;  
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%;
-    padding-bottom: 30px; 
+    padding-bottom: 30px;
 }
 
 .secondary-btn.see-all {
-    position: absolute; 
+    position: absolute;
     bottom: 0;
-    left: 28px; 
-    margin-bottom: 10px; 
-}
-
-/* Button Styling */
-.secondary-btn {
-    all: unset;
-    color: #000000;
+    left: 28px;
+    margin-bottom: 10px;
     font-size: 12px;
+    color: #000000;
+    font-weight: 500;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
 }
 
-.secondary-btn:hover {
+.secondary-btn.see-all:hover {
     color: #aaa;
 }
 
-.secondary-btn .arrow {
-    font-size: 16px;
+/* Stil för pilen på "See All" knappen */
+.secondary-btn.see-all .arrow {
+    font-size: 16px; /* Tunn pilstorlek */
     transform: translateX(4px);
 }
 
-/* Styling för alla knappar med pil */
-button.submit-btn,
-.secondary-btn a,
-footer a {
-    display: inline-flex;
-    align-items: center;
-    font-size: 14px; /* Säkerställer att texten är konsekvent på alla knappar */
+/* Justering av knappar med pilen */
+button.submit-btn:hover,
+.secondary-btn.see-all:hover,
+footer a.footer-link:hover {
+    color: #aaa;
 }
 
+button.submit-btn:hover .arrow,
+.secondary-btn.see-all:hover .arrow,
+footer a.footer-link:hover .arrow {
+    transform: translateX(6px); /* Lite större rörelse på pilen vid hover */
+}
 /* Team Image Section */
 #team {
     width: 100%;
@@ -1182,10 +1181,10 @@ footer a {
 
 /* Footer */
 footer {
-    text-align: left; /* För att vänsterjustera texten */
+    text-align: left;
     padding: 20px;
-    max-width: 1430px;  /* Begränsa maxbredden */
-    margin: 0 auto; /* Centrera footer-sektionen horisontellt */
+    max-width: 1430px;
+    margin: 0 auto;
     padding-top: 200px;
     padding-bottom: 100px;
     background-color: #fff;
@@ -1198,7 +1197,7 @@ footer {
 footer .footer-content {
     display: flex;
     align-items: left;
-    justify-content: flex-start; /* Placera innehållet längst till vänster */
+    justify-content: flex-start;
     gap: 100px;
 }
 
@@ -1209,17 +1208,17 @@ footer ul {
     display: flex;
     gap: 100px;
     margin: 0;
-    justify-content: flex-start; /* Placera listobjekten längst till vänster */
+    justify-content: flex-start;
 }
 
 /* Länkar i footern */
-footer a {
+footer a.footer-link {
     color: #000;
-    text-decoration: none;
     font-size: 14px;
+    font-weight: 500;
 }
 
-footer a:hover {
+footer a.footer-link:hover {
     color: #555;
 }
 
