@@ -223,18 +223,35 @@ const quotes = [
 ];
 
 let currentQuoteIndex = 0;
+
+// Function to change the quote
 function changeQuote() {
     const quoteTextElement = document.getElementById("quote-text");
+
     if (quoteTextElement) {
         const currentQuote = quotes[currentQuoteIndex];
-        quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+
+        // Fade-out animation before changing the quote
+        quoteTextElement.classList.add('fade-out');
+
+        // Wait for the fade-out animation to finish before updating the quote
+        setTimeout(() => {
+            // Change the quote text and author
+            quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+            
+            // Fade-in animation after updating the quote
+            quoteTextElement.classList.remove('fade-out');
+            quoteTextElement.classList.add('fade-in');
+
+            // Move to the next quote
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        }, 500); // Match this timeout with the fade-out duration (0.5s)
     }
 }
 
 // Start the quote carousel
-setInterval(changeQuote, 5000);
-changeQuote();
+setInterval(changeQuote, 5000); // Change quote every 5 seconds
+changeQuote(); // Initialize the first quote change immediately
 
 // Shuffle images in a row on hover
 function shuffleImagesInRow(row) {
