@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6, p {
     text-transform: uppercase;
 }
 
+.animate {
+   will-change: transform, opacity;
+}
+
 #contact-link, #contact-footer-link, .floating-btn, #mobile-menu a {
     pointer-events: auto;
 }
@@ -663,6 +667,8 @@ h1, h2, h3, h4, h5, h6, p {
     transition: opacity 1s ease-in-out;
     text-align: left; 
     width: 100%;
+    animation: fadeIn 2s ease-in-out;
+   -webkit-animation: fadeIn 2s ease-in-out;
 }
 
 /* Style for the quote text */
