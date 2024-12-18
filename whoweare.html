@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Event Staffing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=SUSSIE+INT'l:wght@400;600" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="pictures/logo2.png" alt="Pro Event Staffing Logo">
+                </a>
+            </div>
+            <ul class="nav-desktop">
+                <div class="nav-left">
+                    <li><a href="whoweare.html">WHO WE ARE</a></li>
+                    <li><a href="previousclients.html">PREVIOUS CLIENTS</a></li>
+                </div>
+                <div class="nav-right">
+                    <li><a href="#" id="join-us-link">JOIN US</a></li>
+                    <li><a href="#" id="contact-link">CONTACT</a></li>
+                </div>
+            </ul>
+            <!-- Mobile burger menu (visible only on mobile) -->
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <!-- Mobile menu (hidden by default) -->
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="menu-header">
+                    <!-- Länkad logotyp i burgermenyn -->
+                    <a href="index.html">
+                        <img src="pictures/proeventmobile2.png" alt="Logo" class="mobile-logo">
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="whoweare.html">WHO WE ARE</a></li>
+                    <li><a href="previousclients.html">PREVIOUS CLIENTS</a></li>
+                    <li><a href="#" id="join-us-footer-link">JOIN US</a></li>
+                    <li><a href="#" id="contact-footer-link">CONTACT US</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="hero2">
+            <div class="hero2-left black-bg">
+                <div id="text-hero-container" class="text-box black-bg event1">
+                    <h2 id="title">WE’RE A High end staffing and production company Operating out of New York</h2>
+                    <h3 id="subtitle">From planning</h3>
+                    <p id="description">
+                        We partner with some of the best event planners, venues and caterers in the industry to bring your dreams to life.
+                        Whether you are planning your next big anniversary, wedding or hosting a private dinner, we can help you on each step of the way.
+                    </p>
+                </div>
+            </div>
+            <div class="hero2-right">
+                <img id="eventImage" src="pictures/event1.png" alt="Event Image" class="event-image" />
+            </div>
+        </section>
+        
+
+        <!-- Divider Section -->
+        <section class="divider white-bg">
+            <h3>All our talents are striving for perfection every step of the way and will utilize their expertise to make sure your event runs smoothly and ends with success.</h3>
+        </section>
+
+        <!-- Team Members Section -->
+        <section id="team" class="team-whoweare">
+            <div class="team-images-container team-whoweare">
+                <div class="team-row" id="row1">
+                    <img src="pictures/staff1.png" alt="Staff 1" class="team-img">
+                    <img src="pictures/staff2.png" alt="Staff 2" class="team-img">
+                    <img src="pictures/staff3.png" alt="Staff 3" class="team-img">
+                    <img src="pictures/staff4.png" alt="Staff 4" class="team-img">
+                    <img src="pictures/staff5.png" alt="Staff 5" class="team-img">
+                    <img src="pictures/staff6.png" alt="Staff 6" class="team-img">
+                </div>
+                <div class="team-row" id="row2">
+                    <img src="pictures/staff3.png" alt="Staff 3" class="team-img">
+                    <img src="pictures/staff4.png" alt="Staff 4" class="team-img">
+                    <img src="pictures/staff1.png" alt="Staff 1" class="team-img">
+                    <img src="pictures/staff6.png" alt="Staff 6" class="team-img">
+                    <img src="pictures/staff2.png" alt="Staff 2" class="team-img">
+                    <img src="pictures/staff5.png" alt="Staff 5" class="team-img">
+                </div>
+                <div class="team-row" id="row3">
+                    <img src="pictures/staff5.png" alt="Staff 5" class="team-img">
+                    <img src="pictures/staff6.png" alt="Staff 6" class="team-img">
+                    <img src="pictures/staff2.png" alt="Staff 2" class="team-img">
+                    <img src="pictures/staff3.png" alt="Staff 3" class="team-img">
+                    <img src="pictures/staff4.png" alt="Staff 4" class="team-img">
+                    <img src="pictures/staff1.png" alt="Staff 1" class="team-img">
+                </div>
+                <div class="team-row" id="row4">
+                    <img src="pictures/staff2.png" alt="Staff 2" class="team-img">
+                    <img src="pictures/staff3.png" alt="Staff 3" class="team-img">
+                    <img src="pictures/staff4.png" alt="Staff 4" class="team-img">
+                    <img src="pictures/staff1.png" alt="Staff 1" class="team-img">
+                    <img src="pictures/staff5.png" alt="Staff 5" class="team-img">
+                    <img src="pictures/staff6.png" alt="Staff 6" class="team-img">
+                </div>
+            </div>
+        </section>
+    
+        <!-- Form Section -->
+        <div class="form-container">
+            <div class="form-content-box">
+            <h1>INQUIRE ABOUT AN EVENT, COLLABORATION, OR SIMPLY SAY HELLO.</h1>
+            <section class="form-section">
+                <form>
+                    <!-- Floating Label for Input -->
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required />
+                        <label for="name">Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required />
+                        <label for="email">Email</label>
+                    </div>
+
+                    <!-- Add Company Name Input Field -->
+                    <div class="form-group">
+                        <input type="text" id="company" placeholder=" " />
+                        <label for="company">Company Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+
+                    <!-- Topic Selection Section -->
+                    <div class="form-group">
+                    <!-- Move label above the select field -->
+                        <label for="topic" id="topic-label">How can we help? (required)</label>
+                            <div class="dropdown">
+                                <select id="topic" name="topic" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="event">Event</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="support">Support</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                            </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">SUBMIT ↗</button>
+                </form>
+            </section>
+            </div>
+        </div>
+</div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="previousclients.html">REVIEWS ↗</a></li>
+                <li><a href="#" id="join-us-footer-link">JOIN US ↗</a></li>
+                <li><a href="#" id="contact-footer-link">CONTACT US ↗</a></li>
+                <li><a href="#instagram">INSTAGRAM ↗</a></li>
+            </ul>
+            <h3>&copy; PROEVENT LLC</h3>
+        </div>
+    </footer> 
+
+
+    <button class="floating-btn">HAVE AN EVENT IN MIND? GET IN TOUCH ↗</button>
+
+<!-- Contact Form Popup -->
+<div id="contact-popup" class="popup contact-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>INQUIRE ABOUT AN EVENT, COLLABORATION, OR SIMPLY SAY HELLO.</h1>
+            <button class="close-btn">X</button>
+        </div>
+        <h2>We’d love to hear from you. Let us know how we can help, and we’ll get back to you as soon as possible.</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <input type="text" id="contact-name" placeholder=" " required />
+                <label for="contact-name">Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="contact-email" placeholder=" " required />
+                <label for="contact-email">Email</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="company" placeholder=" " />
+                <label for="company">Company Name</label>
+            </div>
+            <div class="form-group">
+                <label for="contact-topic">How can we help? (required)</label>
+                <select id="contact-topic" name="topic" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="event">Event</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="support">Support</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="contact-message" placeholder=" " required></textarea>
+                <label for="contact-message">Message</label>
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT ↗</button>
+        </form>
+    </div>
+</div>
+
+<!-- Join Us Form Popup -->
+<div id="join-us-popup" class="popup join-us-popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>JOIN THE TEAM</h1>
+            <button class="close-btn">X</button>
+        </div>
+        <h2>If you're looking for work within the event industry, you've come to the right place. We would love to have you on our team.</h2>
+        <h2>Fill out the application form and we will get back to you with a time for an interview.</h2>
+        <form id="join-us-form">
+            <div class="form-group">
+                <input type="text" id="join-name" placeholder=" " required />
+                <label for="join-name">Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="join-email" placeholder=" " required />
+                <label for="join-email">Email</label>
+            </div>
+            <div class="form-group">
+                <textarea id="join-message" placeholder=" " required></textarea>
+                <label for="join-message">Message</label>
+            </div>
+            <div class="form-group">
+                <label for="attachment">Attachment</label>
+                <input type="file" id="attachment" name="attachment" multiple />
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT ↗</button>
+        </form>
+    </div>
+</div>
+
+<!-- Submit Success Popup -->
+<div id="submit-popup" class="popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h1>Thanks for your submission!</h1>
+            <button class="close-btn">X</button>
+        </div>
+        <div class="form-container">
+            <h2>We’ll get back to you shortly.</h2>
+            <button class="submit-btn close-popup">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+<!-- New Confirmation Popup -->
+<div id="confirmation-popup" class="popup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h3>Confirmation</h3>
+            <button class="close-btn">X</button>
+        </div>
+        <p>Your action was successful!</p>
+        <button class="submit-btn close-popup">CLOSE</button>
+    </div>
+</div>
+
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

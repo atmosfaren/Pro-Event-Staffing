@@ -1,0 +1,1605 @@
+/* General Styles */
+body {
+    font-family: "SUSSIE INT'l", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+}
+
+.whoweare-page #team #team-images-container {
+    background-color: #000000 !IMPORTANT;
+}
+
+body[data-page="whoweare"] #team #team-images-container {
+    background-color: #000000 !IMPORTANT;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    text-transform: uppercase;
+}
+
+/* Bakgrundselementet */
+.navbar .navbar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transition: backdrop-filter 0.3s ease;
+
+    /* Prefix för äldre webbläsare */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+/* Fix for stacking context and positioning */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    padding: 10px 15px;
+    box-shadow: 0px 4px 6px rgba(88, 88, 88, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+/* Bakgrundseffekt vid scroll */
+.navbar.scrolled .navbar-background {
+    backdrop-filter: blur(5px);
+}
+
+/* Innehåll som inte påverkas av suddigheten */
+.navbar .navbar-content {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar .logo {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+    opacity: 1;
+}
+
+.navbar .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Styling för länkar och andra element */
+.nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Hover-effekt för länkar i navbaren */
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Lägg till transition för att skapa smooth animation */
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: hsla(0, 0%, 83%, 0.5); /* Ändra färg på hover */
+}
+
+/* Lägg till eventuella ytterligare hover-effekter på andra element */
+
+/* Ändra färg på navbaren vid scroll */
+.navbar.scrolled {
+    background-color: #fff; /* Vit bakgrundsfärg för navbar */
+    transition: background-color 0.3s ease;
+}
+
+/* Ändra färg på navbar-länkar vid scroll */
+.nav-desktop a.dark {
+    color: #000; /* Svart färg för länkar */
+}
+
+/* Lägg till grå hover-effekt för svarta länkar */
+.nav-desktop a.dark:hover {
+    color: #808080; /* Grå färg vid hover */
+}
+
+/* Ändra färg på burgerlinjer vid scroll */
+.burger-line.dark {
+    background-color: #000; /* Svart färg för linjer */
+}
+
+/* Smooth färgövergång för alla navbar-element */
+.nav-desktop a, .burger-line, .navbar {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Specifika stilar för sidan previousclients.html */
+.previous-clients-page .nav-left a,
+.previous-clients-page .nav-right a {
+    color: #000 !important; /* Gör länkarna svarta */
+}
+
+/* Lägg till hover-effekt som gör länkarna grå */
+.previous-clients-page .nav-left a:hover,
+.previous-clients-page .nav-right a:hover {
+    color: rgba(128, 128, 128, 0.5) !important; /* Länkarna blir grå på hover */
+}
+
+/* Burger-line förblir svart */
+.previous-clients-page .burger-line {
+    background-color: #000 !important; /* Gör burger-linjerna svarta */
+}
+
+/* För att ändra bakgrundsfärg när navbaren scrollas */
+.burger-line.scrolled {
+    background-color: rgb(0, 0, 0); /* Förändrad bakgrundsfärg vid scroll */
+}
+
+/* För att ändra färg på navbar-länkar vid scroll för 'previousclients.html' */
+.previous-clients-page .nav-desktop a.dark {
+    color: #000 !important; /* Länkarna på previousclients ska vara svarta */
+}
+
+/* Lägg till smooth transition på länkar på previousclients-sidan */
+.previous-clients-page .nav-desktop a {
+    transition: color 0.3s ease; /* Lägger till en mjuk övergång på färgändringen */
+}
+
+/* Valfri stil för smooth transition på hover */
+.previous-clients-page .nav-left a:hover,
+.previous-clients-page .nav-right a:hover {
+    transition: color 0.3s ease !important;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000000;
+    padding-top: 20px;
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.0rem;
+    font-weight: 300;
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.mobile-menu .menu-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px; 
+    margin-bottom: 20px; 
+}
+
+.mobile-logo {
+    width: 220px;
+    height: auto;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+/* Mobile burger menu */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 102;
+}
+
+.burger-line {
+    height: 1px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-menu .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+/* Animation for burger lines turning into an 'X' */
+.burger-menu.open .burger-line {
+    background-color: #000;
+}
+
+.burger-menu.open .burger-line:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.burger-menu.open .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .burger-line:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+/* Hero Section */
+#hero {
+    height: 88vh;
+    background: url('pictures/hero.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero-logo {
+    max-width: 100%;
+    height: auto;
+    max-width: 300px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hero2 Section */
+#hero2 {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 98vh;
+    background-color: #000000;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row; /* Standard på större skärmar */
+}
+
+/* Left section (text box) */
+.hero2-left {
+    background-color: black;
+    color: white;
+    z-index: 10;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    max-width: 715px;
+}
+
+/* Right section (image) */
+.hero2-right {
+    position: relative;
+    height: 100%;
+    width: 50%; /* Ändra bredden till 50% för att få den att fylla bredden */
+    max-width: 915px;
+}
+
+.hero2-right img.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center left;
+}
+
+/* Text container adjustments */
+.text-box {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    height: 100%;  /* Ensures the container stretches */
+}
+
+/* Text container adjustments */
+.text-box {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-left: 100px;
+    height: 100%;
+    width: 60%; /* Sätt bredden till 60% eller annan valfri värde */
+    max-width: 715px; /* Valfritt, du kan justera max bredd */
+    line-height: 1.6;
+}
+
+/* Title (h2) */
+.text-box h2 {
+    font-size: 16px; /* Ändrar storlek på titeln */
+    margin: 0 0 10px;
+}
+
+/* Subtitle (h3) */
+.text-box h3 {
+    font-size: 12px; /* Ändrar storlek på rubriken */
+    margin: 0 0 10px;
+    margin-bottom: 10%;
+}
+
+/* Paragraph (p) */
+.text-box p {
+    font-size: 12px; /* Ändrar storlek på paragrafen */
+    margin: 0 0 50px;
+    width: 70%;
+}
+
+
+/* Event1 Text Box - Text at the bottom */
+.event1 {
+    justify-content: flex-end; /* Positionerar all text i botten */
+}
+
+.event1 h2 {
+    order: -1; /* Gör så att titeln hamnar först */
+    padding-bottom: 10px; /* Padding mellan titel och beskrivning */
+    margin-bottom: 60%;
+    width: 100%;
+}
+
+.event1 p {
+    padding-bottom: 10%; /* Padding mellan titel och beskrivning */
+}
+
+/* Event2 Text Box - Text centered vertically */
+.event2 {
+    justify-content: center; /* Texten centrerad vertikalt */
+}
+
+.event2 h2 {
+    display: none;
+}
+
+
+/* Event3 - Titeln under beskrivningen */
+.event3 {
+    display: flex;
+    flex-direction: column; /* Se till att texterna visas i en kolumn */
+    justify-content: flex-start; /* Börja från toppen */
+    margin-top: 20%;
+}
+
+.event3 h2 {
+    order: 2; /* Sätt titeln längst ner i kolumnen */
+}
+
+.event3 p {
+    order: 1; /* Sätt paragrafen först */
+    margin-bottom: 70%;
+    width: 70%;
+}
+
+/* Adjustments for responsiveness */
+@media (min-width: 769px) {
+    #hero2 {
+        flex-direction: row; /* Hero2 ska vara i rad på större skärmar */
+    }
+
+    .hero2-left, .hero2-right {
+        width: 50%; /* Sätter båda sektionerna till 50% bredd */
+        max-width: 915px; /* Säkerställ att bredden inte går utöver maxbredd */
+        height: 100%;
+    }
+}
+
+/* Responsiva inställningar för mindre skärmar */
+@media (max-width: 768px) {
+    #hero2 {
+        flex-direction: column-reverse; /* Byter plats på bild och text */
+        max-width: 100%;
+    }
+
+    .hero2-left, .hero2-right {
+        width: 100%;  /* Båda sektionerna fyller hela bredden */
+        max-width: none;
+        height: 50%;
+    }
+
+    .hero2-left {
+        padding: 20px; /* Lite mindre padding än på desktop */
+    }
+
+    .text-box {
+        width: 95%; /* Text-boxen tar upp hela bredden på mindre skärmar */
+        padding: 1%;  /* Ingen padding */
+        margin: 0;   /* Ingen margin */
+        height: 70%;
+    }
+
+    /* Ändra avståndet mellan elementen i text-boxen för att göra det mer kompakt */
+    .text-box h2, .text-box h3, .text-box p {
+        margin: 0 0 5px; /* Minska avståndet mellan titlar och text */
+        padding: 1%;      /* Se till att det inte finns extra padding */
+    }
+
+    /* Event1 - Justera paddingen för att texten ska komma närmare */
+    .event1 h2 {
+        padding-bottom: 5%; /* Minska padding */
+        margin-bottom: 1%;  /* Minska avståndet till beskrivningen */
+    }
+
+    /* Event2 - För att bibehålla centrerad text utan extra padding */
+    .event2 h2 {
+        display: none;
+        margin-top: 50%;
+    }
+
+    /* Event3 - Minska avståndet på responsiv vy */
+    .event3 h2 {
+        margin-top: -2%; /* Ingen toppmarginal */
+    }
+
+    .event3 p {
+        margin-bottom: 5%; /* Minska avståndet i event3 */
+    }
+
+    .event3 h3 {
+        margin-top: -10%;
+    }
+
+    .text-box h2 {
+        font-size: 14px; /* Ändrar storlek på titeln */
+    }
+}
+
+/* Fade-out and fade-in animations */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* CSS för svep-animation */
+.sweep-in {
+    animation: sweepIn 0.5s ease forwards;
+}
+
+@keyframes sweepIn {
+    from {
+        transform: translateY(100%); /* Start underifrån */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0); /* Flytta till originalposition */
+        opacity: 1;
+    }
+}
+
+
+#hero3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    flex-direction: row;
+    max-width: 1830px; /* Total maxbredd för hero */
+    margin: 0 auto;
+    width: 100%; /* Gör att den sträcker sig över hela skärmen */
+}
+
+.hero3-left, .hero3-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Delar lika på utrymmet */
+    height: 100%; /* Se till att sektionerna fyller hela höjden på hero */
+}
+
+.hero3-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Delar lika på utrymmet */
+    height: 100%; /* Se till att sektionerna fyller hela höjden på hero */
+}
+
+.hero3-right img.event-image {
+    width: 100%;
+    height: 100%; /* Gör att bilden fyller hela höjden */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsiv design för Hero3 */
+@media (min-width: 769px) {
+    #hero3 {
+        flex-direction: row; /* Se till att sektionerna är på rad */
+    }
+
+    .hero3-left, .hero3-right {
+        flex: 1; /* Jämnt fördelade på bredden */
+        width: 50%;
+        max-width: 915px; /* Maxbredden för båda sektionerna */
+        height: 100%; /* Fyller hela höjden */
+    }
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    #hero3 {
+        flex-direction: column; /* Staplar sektionerna vertikalt på små skärmar */
+        max-width: 100%; /* Låt sektionen ta upp hela bredden på små skärmar */
+    }
+
+    .hero3-left, .hero3-right {
+        flex: none;
+        width: 100%; /* Gör varje sektion lika bred som skärmen */
+        max-width: none; /* Ignorera maxbredden på små skärmar */
+        margin-bottom: 100px; /* Skapar mellanrum mellan sektionerna */
+        height: auto; /* Tillåt höjd att justeras automatiskt för små skärmar */
+    }
+
+    .hero3-left {
+        text-align: center; /* Centrerar texten för små skärmar */
+    }
+}
+
+/* Divider Section */
+.divider {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #000;
+}
+
+.divider h3 {
+    font-size: 12px;
+    width: 99%; 
+    max-width: 1430px; 
+    text-align: left;
+    padding-bottom: 50px;
+}
+
+.black-bg {
+    background-color: #000000;
+    color: #fff;
+}
+
+.white-bg {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Quote container for positioning */
+.quote-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start;
+    align-items: flex-start; /* Align items to the left */
+    height: 100px; 
+    width: 1400px; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+/* Fade transition for the quotes */
+.quote {
+    font-size: 14px;
+    color: #6B6B6B;
+    transition: opacity 1s ease-in-out;
+    text-align: left; 
+    width: 100%;
+}
+
+/* Style for the quote text */
+.quote-text {
+    display: block;
+}
+
+/* Style for the author name */
+.author {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Clients Section */
+#clients {
+    padding: 0 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    max-width: 1430px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -20px;
+}
+
+/* Klientlistan */
+.client-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 100px;
+    width: 100%;
+}
+
+/* Position the SEE ALL button at the bottom left of the clients section */
+#clients .see-all-container {
+    position: absolute;  
+    bottom: 0;  
+    left: 0;
+    width: 100%;
+    padding-bottom: 30px; 
+}
+
+/* Position the button to the left and at the bottom */
+.secondary-btn.see-all {
+    position: absolute; 
+    bottom: 0;
+    left: 20px; 
+    margin-bottom: 10px; 
+}
+
+/* Button Styling */
+.secondary-btn {
+    all: unset;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.secondary-btn:hover {
+    color: #aaa;
+}
+
+.secondary-btn .arrow {
+    font-size: 12px;
+    transform: translateX(4px);
+}
+
+/* Clients Section */
+#new-clients {
+    padding: 0 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;  /* För att placera titeln ovanför bilderna */
+    justify-content: center;
+    max-width: 1430px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -20px;
+}
+
+/* Klientlistan */
+.new-client-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Justera bilderna så att de hamnar i mitten */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Bilder ska vara responsiva och anpassa sig efter skärmens storlek */
+.new-client-list img {
+    max-width: 150px;
+    width: 25%;
+    height: auto;
+}
+
+/* Responsiv design för mindre skärmar */
+@media (max-width: 768px) {
+    .new-client-list img {
+        max-width: 150px;  /* Minska storleken på bilderna på mindre skärmar */
+    }
+}
+
+/* Titel */
+#new-clients h2 {
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* För att centrera sektionen på skärmen */
+#new-clients {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    margin: 0 auto;
+}
+
+/* Justering för mindre skärmar */
+@media (max-width: 480px) {
+    #new-clients h4 {
+        font-size: 14px;  /* Minska textstorleken på mindre skärmar */
+    }
+}
+
+
+/* Team Image Section */
+#team {
+    width: 100%;
+    height: 780px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+
+.team-images-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.team-img {
+    width: 240px;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.team-img:hover {
+    transform: scale(1.1);
+}
+
+/* Event Cards container */
+#events {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    max-width: 1430px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Event Cards */
+.event-card {
+    width: 30%;
+    background-color: #fff;
+    text-align: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    min-height: 450px;
+}
+
+/* Event Card Image */
+.event-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    flex-grow: 1;
+}
+
+/* Svart bakgrund Event Card */
+.event-card.black-bg {
+    background-color: #000;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    width: 30%;
+    height: 450px;
+    box-sizing: border-box;
+    min-height: 450px;
+}
+
+/* Rubrik i svart bakgrund */
+.event-card.black-bg h4 {
+    margin-bottom: 15px;
+}
+
+/* Paragraf i svart bakgrund */
+.event-card.black-bg p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Pilar i svart bakgrund */
+.event-card.black-bg .arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    margin-top: 10px;
+}
+
+.event-card.black-bg .arrows span {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Text container till höger om korten */
+.text-container {
+    width: 30%;
+    text-align: right;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px;
+    box-sizing: border-box;
+}
+
+/* Text container till höger om korten */
+.text-container {
+    width: 30%;
+    text-align: right;
+    padding-left: 20px;
+}
+/* General Popup Styles */
+.popup, .join-us-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.popup.show, .join-us-popup.show {
+    display: flex;
+}
+
+/* Popup Content Styles */
+.popup-content, .join-us-popup .popup-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 60px;
+    padding-right: 60px;
+    overflow-y: auto;
+}
+
+/* Popup Header (Title + Close Button) */
+.popup-header {
+    display: flex;
+    justify-content: space-between;  /* Space between title and close button */
+    align-items: center;  /* Vertically center the title and button */
+    margin-bottom: 20px;  /* Space between header and form */
+}
+
+/* Close Button Styles */
+.close-btn {
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 20px; /* Close button on the right */
+    top: 20px; /* Align with title */
+}
+
+/* Form Styles */
+.join-us-popup form,
+.popup form {
+    width: 100%;
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    text-align: left;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0px 0px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.form-section {
+    max-width: 615px;
+}
+
+.form-content-box {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0px 20px;
+    background-color: #fff;
+    text-align: left; /* Justerar texten till vänster */
+}
+
+.form-content-box * {
+    text-align: left; /* Säkerställer att även alla underliggande element är vänsterjusterade */
+    margin-left: 0;   /* Sätt eventuell vänster marginal på 0 om den behövs */
+}
+
+.form-content-box h1 {
+    color: #000000;
+    font-size: 12px;
+    padding-top: 200px;
+    padding-left: 0px;
+}
+
+.popup-header h1 {
+    color: #000000;
+    font-size: 12px;
+    padding-left: 0px;
+}
+
+/* Form Field */
+.form-group {
+    position: relative;
+    margin-bottom: 0px;
+    color: #A4A4A4;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 10px 0;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Background color for select */
+.form-group select {
+    background-color: #ffffff;
+    padding: 12px 10px;
+    font-size: 12px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Focus Effect for Form Fields */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-bottom: 1px solid #686868;
+}
+
+/* Label Movement on Focus or Value */
+.form-group input:focus ~ label,
+.form-group select:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group select:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: 0px;
+    left: 0;
+    font-size: 12px;
+    color: #A4A4A4;
+}
+
+/* Join Us and Popup Header Titles */
+.popup-content h1, .join-us-popup .popup-content h1,
+.popup-content h2, .join-us-popup .popup-content h2,
+.popup-content h3, .join-us-popup .popup-content h3 {
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.popup-content h2,
+.popup-content h3,
+.join-us-popup .popup-content h2,
+.join-us-popup .popup-content h3 {
+    color: #888;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 15px;
+    margin-top: 40px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffffff;
+    color: hsla(0, 0%, 0%, 1);
+    border: 1px solid #000;
+}
+
+/* Ensure that popups fit within the screen on mobile */
+@media (max-width: 768px) {
+    .popup, .join-us-popup {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Prevent any content from overflowing */
+    }
+
+    .popup-content, .join-us-popup .popup-content {
+        width: 100%;
+        max-width: 100%; /* Ensure content doesn't exceed the width */
+        box-sizing: border-box; /* Prevent padding from affecting size */
+        padding: 0px;  /* Adjust padding for better spacing */
+        overflow: auto;  /* Allow scroll if content exceeds viewport */
+    }
+
+    .popup-content h3,
+    .popup, .popup-content h3 {
+        font-size: 12px; /* Adjust heading size on mobile */
+    }
+
+    .popup-header {
+        padding-top: 50px;
+    }
+
+    .form-group {
+        width: 90%;
+    }
+}
+
+/* Select Field Margin */
+.form-group select {
+    margin-top: 50px;
+}
+
+/* Confirmation Popup Styles */
+#submit-popup .popup-content {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+}
+
+#submit-popup h1 {
+    color: #000;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+#submit-popup h2 {
+    color: #B6B6B6;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+/* Submit Button in Confirmation Popup */
+.submit-btn.close-popup {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 12px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.submit-btn.close-popup:hover {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+
+/* Floating Button */
+.floating-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    z-index: 25;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #ffffff;
+    color: hsla(0, 0%, 0%, 1);
+    border: 1px solid #000;
+}
+
+/* Footer */
+footer {
+    text-align: left; /* För att vänsterjustera texten */
+    padding: 20px;
+    max-width: 1430px;  /* Begränsa maxbredden */
+    margin: 0 auto; /* Centrera footer-sektionen horisontellt */
+    padding-top: 200px;
+    padding-bottom: 100px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    position: relative;
+}
+
+/* Innehållet i footern */
+footer .footer-content {
+    display: flex;
+    align-items: left;
+    justify-content: flex-start; /* Placera innehållet längst till vänster */
+    gap: 100px;
+}
+
+/* Listan i footern */
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 100px;
+    margin: 0;
+    justify-content: flex-start; /* Placera listobjekten längst till vänster */
+}
+
+/* Länkar i footern */
+footer a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: #555;
+}
+
+/* Footer rubrik */
+footer h3 {
+    color: #808080;
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* För att se till att copyrighttexten ligger i botten på sidan på större skärmar */
+.footer-copyright {
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Responsive Media Queries */
+
+/* Mobilvyer (upp till 375px - exempelvis iPhone 13 Mini) */
+@media (max-width: 375px) {
+    .navbar {
+        height: 50px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        margin-left: 0;
+    }
+
+    .navbar .logo img {
+        content: url('pictures/proeventmobile2.png');
+        height: 20px;
+        width: auto;
+    }
+
+    .floating-btn {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 18px;
+        font-size: 4vw;
+        padding: 12px 18px;
+    }
+
+    .divider {
+        padding: 10px 10px;
+        font-size: 1rem;
+        max-height: 30px;
+    }
+
+    .divider h3 {
+        font-size: 10px;
+    }
+
+    footer {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    footer .footer-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer a {
+        font-size: 12px;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+    }
+
+    .footer-copyright {
+        margin-top: 20px;
+    }
+}
+
+/* Små tablets och mobiler (376px till 768px) */
+@media (min-width: 376px) and (max-width: 768px) {
+    .navbar {
+        height: 50px;
+        padding: 0 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 4px 6px rgba(88, 88, 88, 0.1);
+    }
+
+    .navbar .logo {
+        position: static;
+        transform: none;
+        order: 1;
+    }
+
+    .navbar .logo img {
+        content: url('pictures/proeventmobile2.png');
+        height: 25px;
+        width: auto;
+    }
+
+    .navbar .burger-menu {
+        order: 2;
+        z-index: 102;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .mobile-menu .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .floating-btn {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 18px;
+        font-size: 3vw;
+    }
+
+    .divider {
+        padding: 15px 15px;
+        font-size: 1.1rem;
+        max-height: 50px;
+        padding-top: 50px;
+    }
+
+    .divider h3 {
+        font-size: 12px;
+        padding-bottom: 50px;
+    }
+
+    footer {
+        padding-top: 100px;
+        padding-bottom: 200px;
+    }
+
+    footer .footer-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer a {
+        font-size: 12px;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-copyright {
+        margin-top: 30px;
+    }
+
+    #events {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: none;
+        box-sizing: border-box;
+    }
+
+    .event-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Visa endast en event card åt gången */
+    .event-card.active {
+        display: block;
+    }
+
+    /* Gör så att text och pilar visas under bilden på mobil */
+    .event-card.black-bg {
+        background-color: #000;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start; /* För att texten ska vara vänsterjusterad */
+        width: 100%;
+        min-height: 150px; /* Ändra här för att justera höjden */
+        height: auto; /* Låt höjden vara dynamisk om innehållet kräver mer utrymme */
+    }
+
+    .event-card.black-bg h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .event-card.black-bg p {
+        font-size: 1rem;
+    }
+
+    .arrows {
+        display: flex;
+        justify-content: space-between;
+        width: 50px;
+        margin-top: 10px;
+    }
+
+    .arrows span {
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #hero3 {
+        flex-direction: column; /* Staplar sektionerna vertikalt */
+    }
+
+    .hero3-right {
+        order: -1; /* Flyttar bilden överst */
+        width: 100%; /* Bilden fyller hela bredden */
+    }
+
+    .hero3-left {
+        order: 0; /* Lämnar citaten under bilden */
+        width: 100%; /* Citaten fyller hela bredden */
+        text-align: center; /* Centrerar texten för mobilvyer */
+        padding: 25px; /* Lägger till lite padding för citaten */
+    }
+
+    .hero3-right img.event-image {
+        width: 100%;
+        height: auto; /* Ser till att bilden anpassas proportionellt */
+        object-fit: cover; /* Behåller proportionerna */
+    }
+}
+
+
+/* Tablets och mindre laptops (769px till 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        height: 50px;
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        justify-content: space-around;
+    }
+
+    .navbar .logo img {
+        height: 30px;
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+/* Laptops (1025px till 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .feature-card {
+        margin: 10px;
+        width: 40%;
+    }
+
+    .navbar .logo img {
+        height: 35px;
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .hero-logo {
+        max-width: 350px;
+    }
+}
+
+/* Stora desktops (1367px till 1920px) */
+@media (min-width: 1367px) and (max-width: 1920px) {
+    .feature-card {
+        width: 30%;
+    }
+
+    .navbar .logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+/* Extra stora desktops (1921px och större) */
+@media (min-width: 1921px) {
+    .feature-card {
+        width: 25%;
+    }
+
+    .navbar .logo img {
+        height: 50px;
+        width: auto;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .hero-logo {
+        max-width: 400px;
+    }
+}
