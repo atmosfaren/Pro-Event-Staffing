@@ -18,6 +18,19 @@ if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
     document.body.classList.add('ios-device');
 }
 
+// Use both click and touch events
+const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
+if (contactLinkMobile) {
+    contactLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+    contactLinkMobile.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
 
 // Function to open a popup
 function openPopup(popupElement) {
