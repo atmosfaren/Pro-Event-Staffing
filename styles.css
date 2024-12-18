@@ -688,7 +688,7 @@ h1, h2, h3, h4, h5, h6, p {
     margin-top: 5px;
 }
 
-/* Clients Section */
+/* Klient-sektion */
 #clients {
     padding: 0 30px;
     background-color: #ffffff;
@@ -699,10 +699,10 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
 }
 
-/* Klientlistan */
+/* Klient-lista */
 .client-list {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
@@ -713,48 +713,56 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* SEE ALL knapp */
 #clients .see-all-container {
-    position: absolute;
-    bottom: 0;
+    position: absolute;  
+    bottom: 0;  
     left: 0;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 30px; 
 }
 
 .secondary-btn.see-all {
-    position: absolute;
+    position: absolute; 
     bottom: 0;
-    left: 28px;
-    margin-bottom: 10px;
-    font-size: 12px;
+    left: 28px; 
+    margin-bottom: 10px; 
+}
+
+/* Button Styling */
+.secondary-btn {
+    all: unset;
     color: #000000;
-    font-weight: 500;
+    font-size: 12px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.secondary-btn:hover {
+    color: #aaa;
+}
+
+.secondary-btn .arrow {
+    font-size: 16px;
+    transform: translateX(4px);
+}
+
+/* Styling för alla knappar med pil */
+button.submit-btn,
+.secondary-btn a,
+footer a {
     display: inline-flex;
     align-items: center;
 }
 
-.secondary-btn.see-all:hover {
-    color: #aaa;
+button.submit-btn .arrow,
+.secondary-btn .arrow,
+footer a .arrow {
+    font-size: 16px; /* Större pil för konsekvens */
+    margin-left: 5px; /* Lägger till lite avstånd mellan text och pil */
+    transform: translateX(4px); /* Skiftar pilen till höger */
 }
 
-/* Stil för pilen på "See All" knappen */
-.secondary-btn.see-all .arrow {
-    font-size: 16px; /* Tunn pilstorlek */
-    transform: translateX(4px);
-}
-
-/* Justering av knappar med pilen */
-button.submit-btn:hover,
-.secondary-btn.see-all:hover,
-footer a.footer-link:hover {
-    color: #aaa;
-}
-
-button.submit-btn:hover .arrow,
-.secondary-btn.see-all:hover .arrow,
-footer a.footer-link:hover .arrow {
-    transform: translateX(6px); /* Lite större rörelse på pilen vid hover */
-}
 /* Team Image Section */
 #team {
     width: 100%;
@@ -1149,6 +1157,7 @@ footer a.footer-link:hover .arrow {
     border: 1px solid #000;
 }
 
+
 /* Floating Button */
 .floating-btn {
     position: fixed;
@@ -1175,10 +1184,10 @@ footer a.footer-link:hover .arrow {
 
 /* Footer */
 footer {
-    text-align: left;
+    text-align: left; /* För att vänsterjustera texten */
     padding: 20px;
-    max-width: 1430px;
-    margin: 0 auto;
+    max-width: 1430px;  /* Begränsa maxbredden */
+    margin: 0 auto; /* Centrera footer-sektionen horisontellt */
     padding-top: 200px;
     padding-bottom: 100px;
     background-color: #fff;
@@ -1191,7 +1200,7 @@ footer {
 footer .footer-content {
     display: flex;
     align-items: left;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Placera innehållet längst till vänster */
     gap: 100px;
 }
 
@@ -1202,17 +1211,17 @@ footer ul {
     display: flex;
     gap: 100px;
     margin: 0;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Placera listobjekten längst till vänster */
 }
 
 /* Länkar i footern */
-footer a.footer-link {
+footer a {
     color: #000;
+    text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
 }
 
-footer a.footer-link:hover {
+footer a:hover {
     color: #555;
 }
 
@@ -1234,6 +1243,8 @@ footer h3 {
     text-align: center;
     margin-top: 12px;
 }
+
+/* Responsive Media Queries */
 
 /* Små tablets och mobiler (376px till 768px) */
 @media (max-width: 768px) {
