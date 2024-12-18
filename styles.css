@@ -857,6 +857,7 @@ h1, h2, h3, h4, h5, h6, p {
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     height: 450px;
     min-height: 450px;
@@ -867,6 +868,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     height: auto;
     display: block;
+    display: -webkit-flex;
     flex-grow: 1;
 }
 
@@ -876,6 +878,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: #fff;
     text-align: left;
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 30px;
