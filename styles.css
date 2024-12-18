@@ -628,7 +628,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .divider h3 {
     font-size: 12px;
-    width: 99%; 
+    width: 50%; 
     max-width: 715px; 
     text-align: left;
 }
