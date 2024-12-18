@@ -688,7 +688,7 @@ h1, h2, h3, h4, h5, h6, p {
     margin-top: 5px;
 }
 
-/* Klient-sektion */
+/* Clients Section */
 #clients {
     padding: 0 30px;
     background-color: #ffffff;
@@ -699,10 +699,10 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
 }
 
-/* Klient-lista */
+/* Klientlistan */
 .client-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
@@ -711,7 +711,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
 }
 
-/* SEE ALL knapp */
+/* Position the SEE ALL button at the bottom left of the clients section */
 #clients .see-all-container {
     position: absolute;  
     bottom: 0;  
@@ -753,6 +753,7 @@ button.submit-btn,
 footer a {
     display: inline-flex;
     align-items: center;
+    font-size: 14px; /* Säkerställer att texten är konsekvent på alla knappar */
 }
 
 button.submit-btn .arrow,
@@ -1157,7 +1158,6 @@ footer a .arrow {
     border: 1px solid #000;
 }
 
-
 /* Floating Button */
 .floating-btn {
     position: fixed;
@@ -1184,10 +1184,10 @@ footer a .arrow {
 
 /* Footer */
 footer {
-    text-align: left;
+    text-align: left; /* För att vänsterjustera texten */
     padding: 20px;
-    max-width: 1430px;
-    margin: 0 auto;
+    max-width: 1430px;  /* Begränsa maxbredden */
+    margin: 0 auto; /* Centrera footer-sektionen horisontellt */
     padding-top: 200px;
     padding-bottom: 100px;
     background-color: #fff;
@@ -1200,7 +1200,7 @@ footer {
 footer .footer-content {
     display: flex;
     align-items: left;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Placera innehållet längst till vänster */
     gap: 100px;
 }
 
@@ -1211,7 +1211,7 @@ footer ul {
     display: flex;
     gap: 100px;
     margin: 0;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Placera listobjekten längst till vänster */
 }
 
 /* Länkar i footern */
@@ -1219,17 +1219,10 @@ footer a {
     color: #000;
     text-decoration: none;
     font-size: 14px;
-    display: flex;
-    align-items: center;
 }
 
 footer a:hover {
     color: #555;
-}
-
-footer a .arrow {
-    font-size: 16px;
-    margin-left: 5px;
 }
 
 /* Footer rubrik */
@@ -1237,6 +1230,18 @@ footer h3 {
     color: #808080;
     font-size: 12px;
     margin: 0;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* För att se till att copyrighttexten ligger i botten på sidan på större skärmar */
+.footer-copyright {
+    text-align: center;
+    margin-top: 12px;
 }
 
 /* Små tablets och mobiler (376px till 768px) */
