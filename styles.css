@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6, p {
     text-transform: uppercase;
 }
 
+#contact-link, #contact-footer-link, .floating-btn, #mobile-menu a {
+    pointer-events: auto;
+}
+
 /* Bakgrundselementet */
 .navbar .navbar-background {
     position: absolute;
