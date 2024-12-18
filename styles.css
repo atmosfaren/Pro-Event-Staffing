@@ -756,14 +756,6 @@ footer a {
     font-size: 14px; /* Säkerställer att texten är konsekvent på alla knappar */
 }
 
-button.submit-btn .arrow,
-.secondary-btn .arrow,
-footer a .arrow {
-    font-size: 16px; /* Större pil för konsekvens */
-    margin-left: 5px; /* Lägger till lite avstånd mellan text och pil */
-    transform: translateX(4px); /* Skiftar pilen till höger */
-}
-
 /* Team Image Section */
 #team {
     width: 100%;
