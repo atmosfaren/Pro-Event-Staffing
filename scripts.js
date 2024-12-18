@@ -13,12 +13,11 @@ const joinUsPopup = document.getElementById('join-us-popup');
 const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
 const joinUsForm = document.getElementById('join-us-form');
 
-// Function to open a popup
+// Open and close popup functions
 function openPopup(popupElement) {
     popupElement.classList.add('show');
 }
 
-// Function to close a popup
 function closePopup(popupElement) {
     popupElement.classList.remove('show');
 }
@@ -149,13 +148,14 @@ window.addEventListener('scroll', () => {
 
 // Hero logo shrinking on scroll
 const heroLogo = document.querySelector('.hero-logo');
-function handleScroll() {
+window.addEventListener('scroll', function () {
     if (window.scrollY > 300) {
         heroLogo.style.transform = 'scale(0.7)';
     } else {
         heroLogo.style.transform = 'scale(1)';
     }
-}
+});
+
 window.addEventListener('scroll', handleScroll);
 
 // Fallback for backdrop filter support
@@ -174,19 +174,7 @@ document.getElementById('topic').addEventListener('change', function() {
     topicLabel.textContent = this.value ? selectedTopic : '';
 });
 
-// Example for detecting touch events
-floatingButton.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    openPopup(popup);
-});
-
-burgerMenu.addEventListener('touchstart', () => {
-    mobileMenu.classList.toggle('open');
-    burgerMenu.classList.toggle('open');
-});
-
-
-// Quote carousel functionality
+// Quote carousel functionality for mobile compatibility
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
     { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
@@ -202,9 +190,10 @@ function changeQuote() {
     }
 }
 
-// Start the quote carousel
+// Ensure quote carousel works on mobile
 setInterval(changeQuote, 5000);
 changeQuote();
+
 
 // Shuffle images in a row on hover
 function shuffleImagesInRow(row) {
@@ -226,25 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventCards = document.querySelectorAll('.event-card');
     const leftArrow = document.getElementById('left-arrow');
     const rightArrow = document.getElementById('right-arrow');
-
+    
+    // Adjust for mobile touch events as well
+    let currentIndex = 0;
     const content = [
-        {
-            title: "FROM PLANNING",
-            text: "We partner with top event planners, venues, and caterers to bring your dreams to life. We help with anniversaries, weddings, and private dinners."
-        },
-        {
-            title: "TO PREPARING",
-            text: "Our team ensures your event runs smoothly. We focus on staffing to let you relax and enjoy the event."
-        },
-        {
-            title: "TO EXECUTING",
-            text: "We provide expert execution through strong partnerships with planners, venues, and caterers for flawless events."
-        }
+        { title: "FROM PLANNING", text: "We partner with top event planners, venues, and caterers to bring your dreams to life." },
+        { title: "TO PREPARING", text: "Our team ensures your event runs smoothly, focusing on staffing so you can relax." },
+        { title: "TO EXECUTING", text: "We provide expert execution through strong partnerships for flawless events." }
     ];
 
-    let currentIndex = 0;
-
-    // Update the content of the text box based on the index
     function updateCardContent(index) {
         const card = document.getElementById('event-card');
         if (card) {
@@ -254,12 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Update the active class on the event cards
     function updateActiveCard(index) {
         eventCards.forEach((card, i) => card.classList.toggle('active', i === index));
     }
 
-    // Hover to update content on the event card
     eventCards.forEach((card, index) => {
         card.addEventListener('mouseenter', () => {
             currentIndex = index;
@@ -268,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Arrow functionality to navigate through content
     if (leftArrow && rightArrow) {
         leftArrow.addEventListener('click', () => {
             currentIndex = (currentIndex === 0) ? content.length - 1 : currentIndex - 1;
@@ -283,10 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize content and active card
     updateCardContent(currentIndex);
     updateActiveCard(currentIndex);
 });
+
 
 
 // Event card mobilvy
