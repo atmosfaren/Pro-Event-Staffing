@@ -31,6 +31,11 @@ if (contactLinkMobile) {
     });
 }
 
+contactLink.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    openPopup(popup);
+});
+
 
 // Function to open a popup
 function openPopup(popupElement) {
