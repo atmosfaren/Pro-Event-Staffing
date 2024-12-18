@@ -508,13 +508,24 @@ h1, h2, h3, h4, h5, h6, p {
 /* Fade-out and fade-in animations */
 .fade-out {
     animation: fadeOut 0.5s forwards;
+    -webkit-animation: fadeOut 0.5s forwards; /* Safari support */
 }
 
 .fade-in {
     animation: fadeIn 0.5s forwards;
+    -webkit-animation: fadeIn 0.5s forwards; /* Safari support */
 }
 
 @keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut { /* Safari support */
     from {
         opacity: 1;
     }
@@ -532,9 +543,19 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
+@-webkit-keyframes fadeIn { /* Safari support */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* CSS för svep-animation */
 .sweep-in {
     animation: sweepIn 0.5s ease forwards;
+    -webkit-animation: sweepIn 0.5s ease forwards; /* Safari support */
 }
 
 @keyframes sweepIn {
@@ -544,6 +565,17 @@ h1, h2, h3, h4, h5, h6, p {
     }
     to {
         transform: translateY(0); /* Flytta till originalposition */
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes sweepIn { /* Safari support */
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
         opacity: 1;
     }
 }
@@ -665,15 +697,22 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 14px;
     color: #6B6B6B;
     transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out; /* Add this line for Safari */
     text-align: left; 
     width: 100%;
     animation: fadeIn 2s ease-in-out;
-   -webkit-animation: fadeIn 2s ease-in-out;
+    -webkit-animation: fadeIn 2s ease-in-out; /* Keep the -webkit animation */
 }
+
 
 /* Style for the quote text */
 .quote-text {
     display: block;
+}
+
+.quote.show {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Style for the author name */
