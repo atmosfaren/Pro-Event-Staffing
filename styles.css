@@ -8,6 +8,12 @@ body {
     color: #000;
 }
 
+.arrow {
+    content: '\2197'; /* Unicode för pilen */
+    font-family: 'Arial', sans-serif; /* Specifik font */
+}
+
+
 html, body {
     overflow-x: hidden; /* Förhindrar horisontell scroll på hela sidan */
 }
