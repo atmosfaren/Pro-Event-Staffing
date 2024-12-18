@@ -13,6 +13,12 @@ const joinUsPopup = document.getElementById('join-us-popup');
 const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
 const joinUsForm = document.getElementById('join-us-form');
 
+if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+    // Apply iOS-specific styles or fixes
+    document.body.classList.add('ios-device');
+}
+
+
 // Function to open a popup
 function openPopup(popupElement) {
     popupElement.classList.add('show');
@@ -25,7 +31,7 @@ function closePopup(popupElement) {
 
 // Show the contact form popup when 'CONTACT' is clicked in the desktop menu
 if (contactLink) {
-    contactLink.addEventListener('touchstart', function(e) { // changed to touchstart
+    contactLink.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(popup);
     });
@@ -33,7 +39,7 @@ if (contactLink) {
 
 // Show the contact form popup when the footer contact link is clicked in the desktop menu
 if (contactFooterLink) {
-    contactFooterLink.addEventListener('touchstart', function(e) { // changed to touchstart
+    contactFooterLink.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(popup);
     });
@@ -41,7 +47,7 @@ if (contactFooterLink) {
 
 // Show the contact form popup when the floating button is clicked in the desktop menu
 if (floatingButton) {
-    floatingButton.addEventListener('touchstart', function(e) { // changed to touchstart
+    floatingButton.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(popup);
     });
@@ -50,7 +56,7 @@ if (floatingButton) {
 // Show the contact form popup when the link is clicked in the mobile menu
 const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
 if (contactLinkMobile) {
-    contactLinkMobile.addEventListener('touchstart', function(e) { // changed to touchstart
+    contactLinkMobile.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(popup);
     });
@@ -58,7 +64,7 @@ if (contactLinkMobile) {
 
 // Show the 'JOIN US' popup when 'Join Us' is clicked in the desktop menu
 if (joinUsLink) {
-    joinUsLink.addEventListener('touchstart', function(e) { // changed to touchstart
+    joinUsLink.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -66,7 +72,7 @@ if (joinUsLink) {
 
 // Show the 'JOIN US' popup when the footer 'Join Us' link is clicked in the desktop menu
 if (joinUsFooterLink) {
-    joinUsFooterLink.addEventListener('touchstart', function(e) { // changed to touchstart
+    joinUsFooterLink.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -75,7 +81,7 @@ if (joinUsFooterLink) {
 // Show the 'JOIN US' popup when the link is clicked in the mobile menu
 const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
 if (joinUsLinkMobile) {
-    joinUsLinkMobile.addEventListener('touchstart', function(e) { // changed to touchstart
+    joinUsLinkMobile.addEventListener('click', function(e) {
         e.preventDefault();
         openPopup(joinUsPopup);
     });
@@ -83,18 +89,17 @@ if (joinUsLinkMobile) {
 
 // Close the contact popup when the close button is clicked
 if (closeButton) {
-    closeButton.addEventListener('touchstart', function() { // changed to touchstart
+    closeButton.addEventListener('click', function() {
         closePopup(popup);
     });
 }
 
 // Close the contact popup when clicking outside the popup content
-document.addEventListener('touchstart', function(e) { // changed to touchstart
+document.addEventListener('click', function(e) {
     if (popup && !popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton && e.target !== contactLinkMobile) {
         closePopup(popup);
     }
 });
-
 
 // Handle form submission (this is where we show the confirmation popup)
 if (form) {
@@ -223,35 +228,18 @@ const quotes = [
 ];
 
 let currentQuoteIndex = 0;
-
-// Function to change the quote
 function changeQuote() {
     const quoteTextElement = document.getElementById("quote-text");
-
     if (quoteTextElement) {
         const currentQuote = quotes[currentQuoteIndex];
-
-        // Fade-out animation before changing the quote
-        quoteTextElement.classList.add('fade-out');
-
-        // Wait for the fade-out animation to finish before updating the quote
-        setTimeout(() => {
-            // Change the quote text and author
-            quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
-            
-            // Fade-in animation after updating the quote
-            quoteTextElement.classList.remove('fade-out');
-            quoteTextElement.classList.add('fade-in');
-
-            // Move to the next quote
-            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-        }, 500); // Match this timeout with the fade-out duration (0.5s)
+        quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
     }
 }
 
 // Start the quote carousel
-setInterval(changeQuote, 5000); // Change quote every 5 seconds
-changeQuote(); // Initialize the first quote change immediately
+setInterval(changeQuote, 5000);
+changeQuote();
 
 // Shuffle images in a row on hover
 function shuffleImagesInRow(row) {
