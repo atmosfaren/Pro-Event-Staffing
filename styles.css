@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 20px;
     padding-left: 100px;
     height: 100%;
-    width: 60%; /* Sätt bredden till 60% eller annan valfri värde */
+    width: 70%; /* Sätt bredden till 60% eller annan valfri värde */
     max-width: 715px; /* Valfritt, du kan justera max bredd */
     line-height: 1.6;
 }
