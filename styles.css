@@ -629,9 +629,8 @@ h1, h2, h3, h4, h5, h6, p {
 .divider h3 {
     font-size: 12px;
     width: 99%; 
-    max-width: 1430px; 
+    max-width: 715px; 
     text-align: left;
-    padding-bottom: 50px;
 }
 
 .black-bg {
