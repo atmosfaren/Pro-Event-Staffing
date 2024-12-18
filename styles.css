@@ -8,6 +8,10 @@ body {
     color: #000;
 }
 
+html, body {
+    overflow-x: hidden; /* Förhindrar horisontell scroll på hela sidan */
+}
+
 .whoweare-page #team #team-images-container {
     background-color: #000000 !IMPORTANT;
 }
