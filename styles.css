@@ -1411,6 +1411,7 @@ footer h3 {
         max-height: 50px;
         padding-top: 50px;
         padding-bottom: 50px;
+        max-width: 715px;
     }
 
     .divider h3 {
