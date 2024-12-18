@@ -422,7 +422,7 @@ const titles = [
     "TO Preparing",
     "Whatever kind of help you need, we give."
 ];
-const subtitles = ["From planning", "To Prepering", "TO EXECUTING"];
+const subtitles = ["From planning", "To Preparing", "TO EXECUTING"];
 const descriptions = [
     "We partner with some of the best event planners, venues and caterers in the industry to bring your dreams to life. Whether you are planning your next big anniversary, wedding or hosting a private dinner, we can help you on each step of the way.",
     "Our team is here to help. We know that the day of your event can be stressful and that is where we come in. Staffing your event with top staff is our number one priority. With us you get to relax and enjoy your event, without having to worry about your guests’ needs.",
@@ -431,40 +431,11 @@ const descriptions = [
 
 // Function to change the image and text
 let currentImageIndex = 0;
+let isAnimating = false;
 
 function changeEventContent() {
-    currentImageIndex = (currentImageIndex + 1) % eventImages.length; // Infinite loop through images
-    const eventImage = document.getElementById('eventImage');
-    const title = document.getElementById('title');
-    const subtitle = document.getElementById('subtitle');
-    const description = document.getElementById('description');
-    const textBox = document.querySelector('.hero2-left .text-box');
-    
-    eventImage.src = eventImages[currentImageIndex];
-    title.textContent = titles[currentImageIndex];
-    subtitle.textContent = subtitles[currentImageIndex];
-    description.textContent = descriptions[currentImageIndex];
-    
-    // Remove previous event class and add the new one
-    textBox.classList.remove('event1', 'event2', 'event3');
-    textBox.classList.add(`event${currentImageIndex + 1}`);
-}
-
-// Add click event to trigger the change
-document.querySelector('.hero2-right img.event-image').addEventListener('click', changeEventContent);
-
-// Animation on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const eventImage = document.querySelector('.hero2-right img.event-image');
-    eventImage.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-});
-
-let isAnimating = false; // Lägg till en global flagga för att förhindra dubbelkörningar
-
-//Animation fade in out text hero2
-function changeEventContent() {
-    if (isAnimating) return; // Stoppa om en animation redan pågår
-    isAnimating = true; // Sätt flaggan för att blockera ytterligare klick
+    if (isAnimating) return; // Stop if animation is in progress
+    isAnimating = true; // Set the flag to prevent multiple clicks
 
     const textBox = document.querySelector('.hero2-left .text-box');
     const eventImage = document.getElementById('eventImage');
@@ -472,19 +443,19 @@ function changeEventContent() {
     // Start fade-out animation
     textBox.classList.add('fade-out');
 
-    // Vänta tills fade-out är klar (lyssna på animationend istället för timeout)
+    // Wait for fade-out to complete
     textBox.addEventListener('animationend', function handleFadeOut(e) {
-        if (e.animationName !== 'fadeOut') return; // Kontrollera att rätt animation avslutades
-        textBox.removeEventListener('animationend', handleFadeOut); // Ta bort händelsen
+        if (e.animationName !== 'fadeOut') return; // Ensure correct animation ended
+        textBox.removeEventListener('animationend', handleFadeOut);
 
-        // Uppdatera innehåll
+        // Update content
         currentImageIndex = (currentImageIndex + 1) % eventImages.length;
         eventImage.src = eventImages[currentImageIndex];
         document.getElementById('title').textContent = titles[currentImageIndex];
         document.getElementById('subtitle').textContent = subtitles[currentImageIndex];
         document.getElementById('description').textContent = descriptions[currentImageIndex];
 
-        // Byt eventklass
+        // Change event class
         textBox.classList.remove('event1', 'event2', 'event3');
         textBox.classList.add(`event${currentImageIndex + 1}`);
 
@@ -493,13 +464,22 @@ function changeEventContent() {
         textBox.classList.add('fade-in');
     });
 
-    // Vänta på att fade-in-animationen avslutas
+    // Wait for fade-in to complete
     textBox.addEventListener('animationend', function handleFadeIn(e) {
-        if (e.animationName !== 'fadeIn') return; // Kontrollera att rätt animation avslutades
-        textBox.removeEventListener('animationend', handleFadeIn); // Ta bort händelsen
+        if (e.animationName !== 'fadeIn') return;
+        textBox.removeEventListener('animationend', handleFadeIn);
 
-        // Rensa klassen och återställ flaggan
+        // Reset flag after animation ends
         textBox.classList.remove('fade-in');
-        isAnimating = false; // Återställ flaggan för att möjliggöra nya klick
+        isAnimating = false;
     });
 }
+
+// Add event listener for image click
+document.querySelector('.hero2-right img.event-image').addEventListener('click', changeEventContent);
+
+// Animation on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const eventImage = document.querySelector('.hero2-right img.event-image');
+    eventImage.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+});
