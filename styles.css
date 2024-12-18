@@ -1409,6 +1409,7 @@ footer h3 {
         font-size: 1.1rem;
         max-height: 50px;
         padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .divider h3 {
