@@ -1288,7 +1288,7 @@ footer h3 {
 }
 
 /* For devices under 375px (small mobile devices) */
-@media (max-width: 375px) {
+@media (max-width: 390px) {
     .navbar {
         height: 45px;
         padding: 0 15px;
@@ -1443,7 +1443,7 @@ body {
 }
 
 /* Burger-menu for mobile devices */
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 390px) {
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -1542,7 +1542,7 @@ body {
 }
 
 /* Små tablets och mobiler (376px till 768px) */
-@media (min-width: 376px) and (max-width: 768px) {
+@media (min-width: 390px) and (max-width: 768px) {
     .navbar {
         height: 50px;
         padding: 0 25px;
