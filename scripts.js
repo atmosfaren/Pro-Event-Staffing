@@ -216,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentIndex = 0;
 
+    // Update the content of the text box based on the index
     function updateCardContent(index) {
         const card = document.getElementById('event-card');
         if (card) {
@@ -225,10 +226,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Update the active class on the event cards
     function updateActiveCard(index) {
         eventCards.forEach((card, i) => card.classList.toggle('active', i === index));
     }
 
+    // Hover to update content on the event card
+    eventCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => {
+            currentIndex = index;
+            updateCardContent(currentIndex);
+            updateActiveCard(currentIndex);
+        });
+    });
+
+    // Arrow functionality to navigate through content
     if (leftArrow && rightArrow) {
         leftArrow.addEventListener('click', () => {
             currentIndex = (currentIndex === 0) ? content.length - 1 : currentIndex - 1;
@@ -243,14 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    eventCards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            currentIndex = index;
-            updateCardContent(currentIndex);
-            updateActiveCard(currentIndex);
-        });
-    });
-
+    // Initialize content and active card
     updateCardContent(currentIndex);
     updateActiveCard(currentIndex);
 });
