@@ -174,6 +174,18 @@ document.getElementById('topic').addEventListener('change', function() {
     topicLabel.textContent = this.value ? selectedTopic : '';
 });
 
+// Example for detecting touch events
+floatingButton.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    openPopup(popup);
+});
+
+burgerMenu.addEventListener('touchstart', () => {
+    mobileMenu.classList.toggle('open');
+    burgerMenu.classList.toggle('open');
+});
+
+
 // Quote carousel functionality
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
