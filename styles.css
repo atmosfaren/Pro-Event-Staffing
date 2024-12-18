@@ -1288,7 +1288,7 @@ footer h3 {
 }
 
 /* For devices under 375px (small mobile devices) */
-@media (max-width: 390px) {
+@media (max-width: 375px) {
     .navbar {
         height: 45px;
         padding: 0 15px;
@@ -1432,18 +1432,28 @@ footer h3 {
     }
 }
 
-/* Generella stilar */
-body {
-    font-family: "SUSSIE INT'l", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fff;
-    color: #000;
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
 }
 
-/* Burger-menu for mobile devices */
-@media screen and (max-width: 390px) {
+
+/* Burger-menu för mobil */
+@media screen and (max-width: 376px) {
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -1455,13 +1465,13 @@ body {
     }
 
     .burger-line {
-        height: 2px; /* Adjusted to make lines more visible */
+        height: 1px;
         background-color: #fff;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .burger-menu .burger-line:nth-child(2) {
-        opacity: 1; /* Ensure second line is visible by default */
+        opacity: 0;
     }
 
     .burger-menu.open .burger-line {
@@ -1484,9 +1494,9 @@ body {
         top: -8px;
     }
 
-    /* Show mobile menu when burger-menu is open */
+    /* Visa mobilmenyn när burger-menyn öppnas */
     .mobile-menu {
-        display: none; /* Initially hide the menu */
+        display: block;
         position: fixed;
         top: 0;
         right: 0;
@@ -1501,14 +1511,13 @@ body {
     }
 
     .mobile-menu.open {
-        display: block; /* Display the menu when open */
         transform: translateX(0);
     }
 
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: left;
         gap: 40px;
         list-style: none;
         padding: 0;
@@ -1541,8 +1550,9 @@ body {
     }
 }
 
+
 /* Små tablets och mobiler (376px till 768px) */
-@media (min-width: 390px) and (max-width: 768px) {
+@media (min-width: 376px) and (max-width: 768px) {
     .navbar {
         height: 50px;
         padding: 0 25px;
