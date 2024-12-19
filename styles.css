@@ -684,33 +684,36 @@ h1, h2, h3, h4, h5, h6, p {
 /* Quote container for positioning */
 .quote-container {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
     height: 100px; 
-    width: 1430px; 
+    width: 100%; /* Make the width responsive */
+    max-width: 1430px; /* Adjust max width for larger screens */
     margin: 0 auto; 
-    position: relative; /* Gör det möjligt att använda z-index */
-    z-index: 10; /* Gör att denna sektion visas över andra element */
-    background-color: white; /* Lägg till en bakgrundsfärg om nödvändigt */
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    overflow: hidden; /* Prevent overflow of content */
 }
 
 /* Fade transition for the quotes */
 .quote {
     font-size: 14px;
     color: #6B6B6B;
+    opacity: 0; /* Start with opacity 0 */
     transition: opacity 1s ease-in-out;
     text-align: left; 
     width: 80%;
     padding: 100px;
     margin-right: 20px;
+    transform: translateY(20px); /* Slight translate effect */
 }
 
 /* Style for the quote text */
 .quote-text {
     display: block;
 }
-
 
 /* Style for the author name */
 .author {
@@ -719,6 +722,12 @@ h1, h2, h3, h4, h5, h6, p {
     color: #888;
     margin-top: 5px;
     padding: 10px;
+}
+
+/* Add specific class for active quote visibility */
+.quote.active {
+    opacity: 1;
+    transform: translateY(0); /* Remove translate effect */
 }
 
 /* Gör hela sektionen 100% bred */
