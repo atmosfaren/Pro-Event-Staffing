@@ -660,7 +660,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .divider h3 {
     font-size: 12px;
-    width: 90%; 
+    width: 100%; 
     max-width: 1430px; 
     text-align: left;
 }
@@ -684,6 +684,9 @@ h1, h2, h3, h4, h5, h6, p {
     height: 100px; 
     width: 1400px; 
     margin: 0 auto; 
+    position: relative; /* Gör det möjligt att använda z-index */
+    z-index: 10; /* Gör att denna sektion visas över andra element */
+    background-color: white; /* Lägg till en bakgrundsfärg om nödvändigt */
 }
 
 /* Fade transition for the quotes */
@@ -693,6 +696,10 @@ h1, h2, h3, h4, h5, h6, p {
     transition: opacity 1s ease-in-out;
     text-align: left; 
     width: 100%;
+    padding: 20px;
+    margin-right: 20px;
+    margin-top: -50px;
+    margin-bottom: -50px;
 }
 
 /* Style for the quote text */
@@ -700,13 +707,40 @@ h1, h2, h3, h4, h5, h6, p {
     display: block;
 }
 
+
 /* Style for the author name */
 .author {
     display: block;
     font-size: 12px;
     color: #888;
     margin-top: 5px;
+    padding: 10px;
 }
+
+/* Gör hela sektionen 100% bred */
+#new-clients {
+    width: 100%;
+    padding: 20px 0; /* Utrymme ovanför och under innehållet */
+    padding-left: 20px;
+}
+
+/* Centrera innehållet horisontellt */
+.new-client-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Gör att bilderna radbryts om det behövs */
+    gap: 50px; /* Avstånd mellan bilderna */
+    max-width: 1430px; /* Begränsa bredden på innehållet */
+    margin: 0 auto; /* Centrera innehållet horisontellt */
+}
+
+/* Styling för bilderna (valfritt) */
+.new-client-list img {
+    max-width: 220px; /* Begränsa bildens storlek */
+    height: auto;
+    object-fit: contain; /* Bevara proportioner */
+}
+
 
 /* Klient-sektion */
 #clients {
@@ -728,7 +762,7 @@ h1, h2, h3, h4, h5, h6, p {
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 100px;
-    width: 715px;
+    width: 100%;
 }
 
 /* SEE ALL knapp */
@@ -1441,13 +1475,20 @@ footer h3 {
         order: 0; /* Lämnar citaten under bilden */
         width: 100%; /* Citaten fyller hela bredden */
         text-align: center; /* Centrerar texten för mobilvyer */
-        padding: 25px; /* Lägger till lite padding för citaten */
     }
 
     .hero3-right img.event-image {
         width: 100%;
         height: auto; /* Ser till att bilden anpassas proportionellt */
         object-fit: cover; /* Behåller proportionerna */
+    }
+
+    .new-client-list {
+        gap: 20px; /* Minska avståndet mellan bilderna */
+    }
+
+    .new-client-list img {
+        max-width: 90px; /* Minska bildstorleken för att passa mindre skärmar */
     }
 }
 
