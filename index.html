@@ -334,18 +334,26 @@
 </div>
 
 <script>
+    // Funktion för att pausa/återuppta videon
+    function togglePause() {
+        var video = document.querySelector('.hero-video');
+        if (video.paused) {
+            video.play(); // Spela upp videon
+        } else {
+            video.pause(); // Pausa videon
+        }
+    }
+</script>
 
-// Manage label visibility and selection behavior
-document.getElementById('topic').addEventListener('change', function() {
-    const topicLabel = document.getElementById('topic-label');
-    const selectedTopic = this.options[this.selectedIndex].text;
-
-    // Hide or show label based on selection
-    topicLabel.classList.toggle('hidden', this.value);
-    topicLabel.textContent = this.value ? selectedTopic : '';
-});
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.querySelector('.hero-video');
+        video.play();
+    });
+</script>
 
 // Array of quotes to cycle through
+<script>
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
     { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
@@ -377,23 +385,8 @@ function changeQuote() {
 // Start the quote carousel
 setInterval(changeQuote, 3000);
 changeQuote(); // Run initially to show first quote
-
-
-// Shuffle images in a row on hover
-function shuffleImagesInRow(row) {
-    const images = Array.from(row.getElementsByClassName('team-img'));
-    const shuffledImages = images.sort(() => Math.random() - 0.5);
-    shuffledImages.forEach(image => row.appendChild(image));
-}
-
-const teamImages = document.querySelectorAll('.team-img');
-teamImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => {
-        const row = event.target.closest('.team-row');
-        shuffleImagesInRow(row);
-    });
-});
-
+</script>
+<script>
 // Event card behavior
 document.addEventListener('DOMContentLoaded', () => {
     const eventCards = document.querySelectorAll('.event-card');
@@ -530,40 +523,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCardContent(currentIndex);
     updateActiveCard(currentIndex);
 });
-
-
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Show logo and apply navbar styles when scrolled past threshold
-    if (currentScroll > scrollThreshold) {
-        navbar.classList.add('scrolled');
-        document.querySelectorAll('.burger-line').forEach(line => {
-            line.classList.add('dark');
-        });
-        document.querySelectorAll('.nav-desktop a').forEach(link => {
-            link.classList.add('dark');
-        });
-    } else {
-        navbar.classList.remove('scrolled');
-        document.querySelectorAll('.burger-line').forEach(line => {
-            line.classList.remove('dark');
-        });
-        document.querySelectorAll('.nav-desktop a').forEach(link => {
-            link.classList.remove('dark');
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname;
-    if (currentPath.includes("previousclients.html")) {
-        document.body.classList.add("previous-clients-page");
-    }
-});
-
 </script>
+
 
     <script src="scripts.js"></script>
     
