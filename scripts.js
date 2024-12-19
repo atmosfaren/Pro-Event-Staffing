@@ -341,69 +341,72 @@ document.addEventListener('DOMContentLoaded', () => {
 // Event card mobilvy
 document.addEventListener('DOMContentLoaded', () => {
     const eventCards = document.querySelectorAll('.event-card');
-    const images = document.querySelectorAll('#events .event-card img');
-    const card = document.getElementById('event-card');
     const leftArrow = document.getElementById('left-arrow');
     const rightArrow = document.getElementById('right-arrow');
 
     // Initial index
     let currentIndex = 0;
 
-    // Uppdatera kortinnehåll baserat på index
+    // Update the content of the text box based on the index
     function updateCardContent(index) {
         const content = [
             {
                 title: "FROM PLANNING",
-                text: "We partner with some of the best event planners, venues and caterers in the industry to bring your dreams to life. Whether you are planning your next big anniversary, wedding or hosting a private dinner, we can help you on each step of the way. "
+                text: "We partner with top event planners, venues, and caterers to bring your dreams to life. We help with anniversaries, weddings, and private dinners."
             },
             {
                 title: "TO PREPARING",
-                text: "Our team is here to help. We know that the day of your event can be stressful and that is where we come in. Staffing your event with top staff is our number one priority. With us you get to relax and enjoy your event, without having to worry about your guests’ needs. "
+                text: "Our team ensures your event runs smoothly. We focus on staffing to let you relax and enjoy the event."
             },
             {
                 title: "TO EXECUTING",
-                text: "We partner with some of the best event planners, venues and caterers in the industry to bring your dreams to life. Whether you are planning your next big anniversary, wedding or hosting a private dinner, we can help you on each step of the way. "
+                text: "We provide expert execution through strong partnerships with planners, venues, and caterers for flawless events."
             }
         ];
 
         const { title, text } = content[index];
+        const card = document.getElementById('event-card');
         card.querySelector('h4').textContent = title;
         card.querySelector('p').textContent = text;
     }
 
-    // Byt till nästa bild (högerpilen)
-    rightArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex === eventCards.length - 1) ? 0 : currentIndex + 1;
-        updateCardContent(currentIndex);
-        updateActiveCard(currentIndex);
-    });
+    // Update the active card based on index
+    function updateActiveCard(index) {
+        eventCards.forEach(card => card.classList.remove('active'));
+        eventCards[index].classList.add('active');
+    }
 
-    // Byt till föregående bild (vänsterpilen)
+    // Arrow functionality to navigate through cards
     leftArrow.addEventListener('click', () => {
         currentIndex = (currentIndex === 0) ? eventCards.length - 1 : currentIndex - 1;
         updateCardContent(currentIndex);
         updateActiveCard(currentIndex);
     });
 
-    // Uppdatera aktiv bild
-    function updateActiveCard(index) {
-        eventCards.forEach(card => card.classList.remove('active'));
-        eventCards[index].classList.add('active');
-    }
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex === eventCards.length - 1) ? 0 : currentIndex + 1;
+        updateCardContent(currentIndex);
+        updateActiveCard(currentIndex);
+    });
 
-    // Sätt initial bild och innehåll
+    // Klickfunktion på bilderna
+    eventCards.forEach((card, index) => {
+        const image = card.querySelector('img');
+        if (image) {
+            image.addEventListener('click', () => {
+                // Klicka på bilden och gå till nästa eller föregående kort
+                currentIndex = (index === eventCards.length - 1) ? 0 : index + 1;
+                updateCardContent(currentIndex);
+                updateActiveCard(currentIndex);
+            });
+        }
+    });
+
+    // Initialize the content for the first card
     updateCardContent(currentIndex);
     updateActiveCard(currentIndex);
-
-    // Hover för att uppdatera innehåll baserat på bild
-    images.forEach((image, index) => {
-        image.addEventListener('click', () => {
-            currentIndex = index;
-            updateCardContent(currentIndex);
-            updateActiveCard(currentIndex);
-        });
-    });
 });
+
 
 
 window.addEventListener('scroll', () => {
