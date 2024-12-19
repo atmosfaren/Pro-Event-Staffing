@@ -143,9 +143,9 @@ h1, h2, h3, h4, h5, h6, p {
     color: #808080; /* Grå färg vid hover */
 }
 
-/* Ändra färg på burgerlinjer vid scroll */
+/* If the burger is scrolled */
 .burger-line.dark {
-    background-color: #000; /* Svart färg för linjer */
+    background-color: #000; /* Black color when scrolled */
 }
 
 /* Smooth färgövergång för alla navbar-element */
@@ -259,17 +259,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 .burger-line {
     height: 1px;
-    background-color: #fff;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .burger-menu .burger-line:nth-child(2) {
     opacity: 0;
 }
 
-/* Animation for burger lines turning into an 'X' */
+/* Burger-line active transition for smooth effect */
 .burger-menu.open .burger-line {
-    background-color: #000;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .burger-menu.open .burger-line:nth-child(1) {
