@@ -230,34 +230,37 @@ let currentQuoteIndex = 0;
 
 function changeQuote() {
     const quoteContainer = document.querySelector('.quote-container');
-    const quotesElements = document.querySelectorAll('.quote');
     
-    // Hide the current quote
-    quotesElements.forEach(quote => {
+    // Remove all previous quotes
+    const previousQuotes = document.querySelectorAll('.quote');
+    previousQuotes.forEach(quote => {
         quote.classList.remove('active'); // Remove active class
+        setTimeout(() => {
+            quote.remove(); // Remove quote after animation duration
+        }, 1000); // Match this timeout with the animation duration
     });
 
     // Get the next quote
     const currentQuote = quotes[currentQuoteIndex];
     const newQuote = document.createElement('div');
-    newQuote.classList.add('quote', 'active');
+    newQuote.classList.add('quote'); // Add quote class but not active initially
     newQuote.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
 
     // Append the new quote to the container
     quoteContainer.appendChild(newQuote);
 
+    // Trigger the animation by adding the active class
+    setTimeout(() => {
+        newQuote.classList.add('active'); // Add active class to trigger the animation
+    }, 10); // Slight delay to ensure the DOM has time to update
+
     // Set the index for the next quote
     currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-
-    // Optional: Remove the previous quote after animation ends
-    setTimeout(() => {
-        quotesElements[0]?.remove(); // Remove first quote element after animation
-    }, 1000); // Match this timeout with the animation duration
 }
 
 // Start the quote carousel with a delay
-setInterval(changeQuote, 5000);
-changeQuote();
+setInterval(changeQuote, 3000);
+changeQuote(); // Run it once immediately
 
 // Event card behavior
 document.addEventListener('DOMContentLoaded', () => {
