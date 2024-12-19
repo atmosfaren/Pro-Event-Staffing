@@ -393,8 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 100; // Adjust this threshold value
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     // Show logo and apply navbar styles when scrolled past threshold
@@ -416,7 +414,6 @@ window.addEventListener('scroll', () => {
         });
     }
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const currentPath = window.location.pathname;
