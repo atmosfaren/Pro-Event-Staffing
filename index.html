@@ -52,9 +52,10 @@
 <!-- Hero Section -->
 <section id="hero">
     <div class="video-container">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" poster="pictures/video-poster.jpg">
             <source src="pictures/videoproevent.mp4" type="video/mp4">
         </video>
+        
     </div>
     <div class="hero-text">
         <img src="pictures/logo.png" alt="Pro Event Staffing Logo" class="hero-logo">
@@ -132,15 +133,16 @@
 </section>
 
         
-        <!-- Quote Container -->
-        <section class="divider white-bg">
-            <div class="quote-container">
-                <p class="quote" id="quote-text">
-                    <span class="quote-text">“We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.”</span>
-                    <span class="author">– Jack, Lawrence Craig</span>
-                </p>
-            </div>
-        </section>
+<!-- Quote Container -->
+<section class="divider white-bg">
+    <div class="quote-container">
+        <div class="quote" id="quote-text">
+            <span class="quote-text">“We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.”</span>
+            <span class="author">– Jack, Lawrence Craig</span>
+        </div>
+    </div>
+</section>
+
         
 
         <!-- Clients Section -->
@@ -330,8 +332,48 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.querySelector('.hero-video');
+        video.play();
+    });
+</script>
+
+// Array of quotes to cycle through
+const quotes = [
+    { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
+    { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
+];
+
+let currentQuoteIndex = 0;
+
+function changeQuote() {
+    const quoteTextElement = document.getElementById("quote-text");
+    if (quoteTextElement) {
+        const currentQuote = quotes[currentQuoteIndex];
+        
+        // Update the quote text and author
+        quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+
+        // Add active class to trigger fade-in animation
+        quoteTextElement.classList.add('active');
+
+        // Set the index for the next quote
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+
+        // Remove active class after animation duration (1s)
+        setTimeout(() => {
+            quoteTextElement.classList.remove('active');
+        }, 2000); // Match this with CSS transition duration
+    }
+}
+
+// Start the quote carousel
+setInterval(changeQuote, 3000);
+changeQuote(); // Run initially to show first quote
 
     <script src="scripts.js"></script>
+    
 
 </body>
 </html>
