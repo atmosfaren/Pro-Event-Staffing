@@ -318,6 +318,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -webkit-transform: translateZ(0); /* För bättre rendering på iOS */
 }
 
 /* Logo styling */
@@ -728,6 +729,7 @@ h1, h2, h3, h4, h5, h6, p {
     opacity: 1;
     transform: translateY(0); /* Remove translate effect */
 }
+
 
 /* Gör hela sektionen 100% bred */
 #new-clients {
