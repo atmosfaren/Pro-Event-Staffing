@@ -318,7 +318,8 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    -webkit-transform: translateZ(0); /* För bättre rendering på iOS */
+    -webkit-transform: translateZ(0); /* Optimized for iOS rendering */
+    -webkit-backface-visibility: hidden; /* Helps with video rendering on iOS */
 }
 
 /* Logo styling */
@@ -329,7 +330,6 @@ h1, h2, h3, h4, h5, h6, p {
     z-index: 1; /* Ensure the logo is in front of the video */
     background: transparent; /* Ensure transparency */
 }
-
 
 /* Hero2 Section */
 #hero2 {
