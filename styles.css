@@ -464,6 +464,12 @@ h1, h2, h3, h4, h5, h6, p {
     width: 70%;
 }
 
+.event1:hover, .event1:focus, .event1:active {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
 /* Adjustments for responsiveness */
 @media (min-width: 769px) {
     #hero2 {
