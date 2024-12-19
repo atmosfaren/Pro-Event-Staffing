@@ -221,25 +221,39 @@ document.getElementById('topic').addEventListener('change', function() {
     topicLabel.textContent = this.value ? selectedTopic : '';
 });
 
-// Quote carousel functionality
+// Array of quotes to cycle through
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
     { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
 ];
 
 let currentQuoteIndex = 0;
+
 function changeQuote() {
     const quoteTextElement = document.getElementById("quote-text");
     if (quoteTextElement) {
         const currentQuote = quotes[currentQuoteIndex];
+        
+        // Update the quote text and author
         quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+
+        // Add active class to trigger fade-in animation
+        quoteTextElement.classList.add('active');
+
+        // Set the index for the next quote
         currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+
+        // Remove active class after animation duration (1s)
+        setTimeout(() => {
+            quoteTextElement.classList.remove('active');
+        }, 2000); // Match this with CSS transition duration
     }
 }
 
 // Start the quote carousel
 setInterval(changeQuote, 3000);
-changeQuote();
+changeQuote(); // Run initially to show first quote
+
 
 // Shuffle images in a row on hover
 function shuffleImagesInRow(row) {
