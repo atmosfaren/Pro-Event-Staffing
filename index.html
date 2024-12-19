@@ -333,6 +333,229 @@
 
 // Array of quotes to cycle through
 <script>
+// Select the elements
+const contactLink = document.getElementById('contact-link');
+const contactFooterLink = document.getElementById('contact-footer-link'); // Footer contact link
+const floatingButton = document.querySelector('.floating-btn');
+const popup = document.getElementById('contact-popup');
+const closeButton = document.querySelector('.close-btn');
+const submitPopup = document.getElementById('submit-popup');
+const closeSubmitButton = document.querySelector('.close-popup');
+const form = document.querySelector('form');
+const joinUsLink = document.getElementById('join-us-link');
+const joinUsFooterLink = document.getElementById('join-us-footer-link'); // Footer join us link
+const joinUsPopup = document.getElementById('join-us-popup');
+const closeJoinUsButton = document.querySelector('.join-us-popup .close-btn');
+const joinUsForm = document.getElementById('join-us-form');
+
+if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+    // Apply iOS-specific styles or fixes
+    document.body.classList.add('ios-device');
+}
+
+
+// Function to open a popup
+function openPopup(popupElement) {
+    popupElement.classList.add('show');
+}
+
+// Function to close a popup
+function closePopup(popupElement) {
+    popupElement.classList.remove('show');
+}
+
+// Show the contact form popup when 'CONTACT' is clicked in the desktop menu
+if (contactLink) {
+    contactLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the contact form popup when the footer contact link is clicked in the desktop menu
+if (contactFooterLink) {
+    contactFooterLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the contact form popup when the floating button is clicked in the desktop menu
+if (floatingButton) {
+    floatingButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the contact form popup when the link is clicked in the mobile menu
+const contactLinkMobile = document.querySelector('#mobile-menu #contact-link');
+if (contactLinkMobile) {
+    contactLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(popup);
+    });
+}
+
+// Show the 'JOIN US' popup when 'Join Us' is clicked in the desktop menu
+if (joinUsLink) {
+    joinUsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
+
+// Show the 'JOIN US' popup when the footer 'Join Us' link is clicked in the desktop menu
+if (joinUsFooterLink) {
+    joinUsFooterLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
+
+// Show the 'JOIN US' popup when the link is clicked in the mobile menu
+const joinUsLinkMobile = document.querySelector('#mobile-menu #join-us-link');
+if (joinUsLinkMobile) {
+    joinUsLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPopup(joinUsPopup);
+    });
+}
+
+// Close the contact popup when the close button is clicked
+if (closeButton) {
+    closeButton.addEventListener('click', function() {
+        closePopup(popup);
+    });
+}
+
+// Close the contact popup when clicking outside the popup content
+document.addEventListener('click', function(e) {
+    if (popup && !popup.contains(e.target) && e.target !== contactLink && e.target !== contactFooterLink && e.target !== floatingButton && e.target !== contactLinkMobile) {
+        closePopup(popup);
+    }
+});
+
+// Handle form submission (this is where we show the confirmation popup)
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup(popup);
+        openPopup(submitPopup);
+    });
+}
+
+// Close the confirmation popup when the 'CLOSE' button is clicked
+if (closeSubmitButton) {
+    closeSubmitButton.addEventListener('click', function() {
+        closePopup(submitPopup);
+    });
+}
+
+// Close the 'JOIN US' popup when the close button is clicked
+if (closeJoinUsButton) {
+    closeJoinUsButton.addEventListener('click', function() {
+        closePopup(joinUsPopup);
+    });
+}
+
+// Close 'JOIN US' popup when clicking outside the popup content
+document.addEventListener('click', function(e) {
+    if (joinUsPopup && !joinUsPopup.contains(e.target) && e.target !== joinUsLink && e.target !== joinUsFooterLink && e.target !== joinUsLinkMobile) {
+        closePopup(joinUsPopup);
+    }
+});
+
+// Handle form submission for 'Join Us' popup
+if (joinUsForm) {
+    joinUsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup(joinUsPopup);
+        alert("Thank you for your application. We'll get back to you shortly.");
+    });
+}
+
+// Get elements for burger menu and mobile menu
+const burgerMenu = document.getElementById('burger-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Toggle the mobile menu and burger animation
+if (burgerMenu) {
+    burgerMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        burgerMenu.classList.toggle('open');
+    });
+}
+
+// Close mobile menu when clicking outside the mobile menu content
+document.addEventListener('click', function(e) {
+    if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== burgerMenu) {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    }
+});
+
+// Close mobile menu when clicking on any menu link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    });
+});
+
+
+// Add an event listener for all desktop menu links
+document.querySelectorAll('.desktop-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        // Close the mobile menu when a link is clicked on desktop
+        mobileMenu.classList.remove('open');
+        burgerMenu.classList.remove('open');
+    });
+});
+
+// Scroll animation for Navbar Logo
+const navbar = document.querySelector('.navbar');
+const logo = document.querySelector('.navbar .logo');
+const scrollThreshold = 300; // Scroll threshold in pixels
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Show logo when scrolled past threshold
+    if (currentScroll > scrollThreshold) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Hero logo shrinking on scroll
+const heroLogo = document.querySelector('.hero-logo');
+function handleScroll() {
+    if (window.scrollY > 300) {
+        heroLogo.style.transform = 'scale(0.7)';
+    } else {
+        heroLogo.style.transform = 'scale(1)';
+    }
+}
+window.addEventListener('scroll', handleScroll);
+
+// Fallback for backdrop filter support
+if (!CSS.supports("backdrop-filter", "blur(5px)")) {
+    const navbarBackground = document.querySelector('.navbar-background');
+    navbarBackground.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; // Alternative style
+}
+
+// Manage label visibility and selection behavior
+document.getElementById('topic').addEventListener('change', function() {
+    const topicLabel = document.getElementById('topic-label');
+    const selectedTopic = this.options[this.selectedIndex].text;
+
+    // Hide or show label based on selection
+    topicLabel.classList.toggle('hidden', this.value);
+    topicLabel.textContent = this.value ? selectedTopic : '';
+});
+
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
     { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
