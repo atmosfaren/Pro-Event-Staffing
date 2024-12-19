@@ -318,7 +318,8 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    -webkit-transform: translateZ(0); /* För bättre rendering på iOS */
+    -webkit-transform: translateZ(0); /* Optimized for iOS rendering */
+    -webkit-backface-visibility: hidden; /* Helps with video rendering on iOS */
 }
 
 /* Logo styling */
@@ -491,11 +492,13 @@ h1, h2, h3, h4, h5, h6, p {
 
     .hero2-left {
         padding: 20px; /* Lite mindre padding än på desktop */
+        padding-bottom: 100px;
     }
 
     .text-box {
         padding-left: 20px;
         padding-right: 20px;
+        padding-bottom: 20px;
         width: auto; /* Anpassa bredden för mindre skärmar */
     }
 
@@ -509,6 +512,7 @@ h1, h2, h3, h4, h5, h6, p {
     .event1 h2 {
         padding-bottom: 5%; /* Minska padding */
         margin-bottom: 1%;  /* Minska avståndet till beskrivningen */
+        margin-top: -45%;
     }
 
     /* Event2 - För att bibehålla centrerad text utan extra padding */
@@ -527,7 +531,7 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .event3 h3 {
-        margin-top: -10%;
+        margin-top: -30%;
     }
 
     .text-box h2 {
@@ -1416,8 +1420,10 @@ footer h3 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-bottom: 80px;
     }
 
+    /* Event Cards Container */
     .event-card {
         width: 100%;
         max-width: 100%;
@@ -1426,13 +1432,7 @@ footer h3 {
         box-sizing: border-box;
     }
 
-    .event-card img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* Visa endast en event card åt gången */
+    /* Active Event Card */
     .event-card.active {
         display: block;
     }
@@ -1445,32 +1445,54 @@ footer h3 {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start; /* För att texten ska vara vänsterjusterad */
+        align-items: center; /* För att texten ska vara centrerad */
         width: 100%;
-        min-height: 150px; /* Ändra här för att justera höjden */
-        height: auto; /* Låt höjden vara dynamisk om innehållet kräver mer utrymme */
+        min-height: 150px;
     }
 
-    .event-card.black-bg h4 {
-        font-size: 1.5rem;
+    /* Rubrik och text justeras för mobil */
+    .event-card.black-bg h4, p {
+        font-size: 12px;
         margin-bottom: 10px;
     }
 
-    .event-card.black-bg p {
-        font-size: 1rem;
+    .event-card.black-bg {
+        background-color: #000;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 150px;
+        height: auto;
+        position: relative; /* Lägg till positionering för att flytta pilarna */
     }
 
+    /* Pilar i svart bakgrund */
     .arrows {
+        position: absolute; /* Positionerar pilarna relativt till föräldern */
+        top: 20px; /* Litet avstånd från toppen */
+        right: 40px; /* Litet avstånd från höger kant */
         display: flex;
         justify-content: space-between;
         width: 50px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     .arrows span {
         font-size: 24px;
         color: #fff;
         cursor: pointer;
+    }
+
+    /* Justering för bilder */
+    .event-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover; /* Behåller bildens proportioner */
     }
 
     #hero3 {
