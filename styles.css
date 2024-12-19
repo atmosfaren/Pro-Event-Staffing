@@ -603,6 +603,7 @@ h1, h2, h3, h4, h5, h6, p {
     align-items: center;
     flex: 1; /* Delar lika på utrymmet */
     height: 100%; /* Se till att sektionerna fyller hela höjden på hero */
+    padding-bottom: 100px;
 }
 
 .hero3-right img.event-image {
@@ -691,11 +692,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Fade transition for the quotes */
 .quote {
-    font-size: 14px;
+    font-size: 16px;
     color: #6B6B6B;
     transition: opacity 1s ease-in-out;
     text-align: left; 
-    width: 100%;
+    width: 90%;
     padding: 20px;
     margin-right: 20px;
     margin-top: -50px;
@@ -711,7 +712,7 @@ h1, h2, h3, h4, h5, h6, p {
 /* Style for the author name */
 .author {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     color: #888;
     margin-top: 5px;
     padding: 10px;
@@ -1512,6 +1513,10 @@ footer h3 {
     .burger-menu {
         display: none;
     }
+
+    .divider {
+        padding-left: 30px;
+    }
 }
 
 /* Laptops (1025px till 1366px) */
@@ -1533,6 +1538,10 @@ footer h3 {
     .hero-logo {
         max-width: 350px;
     }
+    
+    .divider {
+        padding-left: 30px;
+    }
 }
 
 /* Stora desktops (1367px till 1920px) */
@@ -1548,6 +1557,11 @@ footer h3 {
 
     .burger-menu {
         display: none;
+    }
+
+    
+    .divider {
+        padding-left: 30px;
     }
 }
 
