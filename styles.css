@@ -690,16 +690,18 @@ h1, h2, h3, h4, h5, h6, p {
     height: 100px; 
     width: 1430px; 
     margin: 0 auto; 
-    position: relative; /* Gör det möjligt att använda z-index */
-    z-index: 10; /* Gör att denna sektion visas över andra element */
-    background-color: white; /* Lägg till en bakgrundsfärg om nödvändigt */
+    position: relative; /* Makes it possible to use z-index */
+    z-index: 10; /* Makes this section appear above others */
+    background-color: white; /* Add background color if necessary */
 }
 
 /* Fade transition for the quotes */
 .quote {
     font-size: 14px;
     color: #6B6B6B;
-    transition: opacity 1s ease-in-out;
+    opacity: 0; /* Start with opacity 0 */
+    -webkit-transition: opacity 1s ease-in-out; /* WebKit-specific transition for iOS */
+    transition: opacity 1s ease-in-out; /* Standard transition */
     text-align: left; 
     width: 80%;
     padding: 100px;
@@ -711,7 +713,6 @@ h1, h2, h3, h4, h5, h6, p {
     display: block;
 }
 
-
 /* Style for the author name */
 .author {
     display: block;
@@ -720,6 +721,12 @@ h1, h2, h3, h4, h5, h6, p {
     margin-top: 5px;
     padding: 10px;
 }
+
+/* Add specific class for active quote visibility */
+.quote.active {
+    opacity: 1; /* Ensure it's visible when active */
+}
+
 
 /* Gör hela sektionen 100% bred */
 #new-clients {
