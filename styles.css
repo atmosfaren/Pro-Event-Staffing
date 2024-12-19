@@ -695,6 +695,7 @@ h1, h2, h3, h4, h5, h6, p {
     z-index: 10;
     background-color: white;
     overflow: hidden; /* Prevent overflow of content */
+    padding: 20px; /* Add padding to prevent text from being cut off */
 }
 
 /* Fade transition for the quotes */
@@ -705,7 +706,7 @@ h1, h2, h3, h4, h5, h6, p {
     transition: opacity 1s ease-in-out;
     text-align: left; 
     width: 80%;
-    padding: 100px;
+    padding: 30px;
     margin-right: 20px;
     transform: translateY(20px); /* Slight translate effect */
 }
