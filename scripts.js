@@ -259,7 +259,6 @@ function changeQuote() {
 setInterval(changeQuote, 5000);
 changeQuote();
 
-
 // Event card behavior
 document.addEventListener('DOMContentLoaded', () => {
     const eventCards = document.querySelectorAll('.event-card');
