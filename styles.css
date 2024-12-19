@@ -1329,11 +1329,13 @@ footer h3 {
         padding-top: 50px;
         padding-bottom: 50px;
         max-width: 715px;
+        width: 100%;
     }
 
     .divider h3 {
         font-size: 12px;
         padding-bottom: 50px;
+        width: 90%;
     }
 
     footer {
