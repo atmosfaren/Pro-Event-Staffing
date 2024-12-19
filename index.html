@@ -331,8 +331,42 @@
     </div>
 </div>
 
-// Array of quotes to cycle through
 <script>
+
+if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+    // Apply iOS-specific styles or fixes
+    document.body.classList.add('ios-device');
+}
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Show logo and apply navbar styles when scrolled past threshold
+    if (currentScroll > scrollThreshold) {
+        navbar.classList.add('scrolled');
+        document.querySelectorAll('.burger-line').forEach(line => {
+            line.classList.add('dark');
+        });
+        document.querySelectorAll('.nav-desktop a').forEach(link => {
+            link.classList.add('dark');
+        });
+    } else {
+        navbar.classList.remove('scrolled');
+        document.querySelectorAll('.burger-line').forEach(line => {
+            line.classList.remove('dark');
+        });
+        document.querySelectorAll('.nav-desktop a').forEach(link => {
+            link.classList.remove('dark');
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("previousclients.html")) {
+        document.body.classList.add("previous-clients-page");
+    }
+});
 
 // Get elements for burger menu and mobile menu
 const burgerMenu = document.getElementById('burger-menu');
