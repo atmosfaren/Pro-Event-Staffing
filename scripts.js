@@ -294,15 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
         eventCards.forEach((card, i) => card.classList.toggle('active', i === index));
     }
 
-    // Hover to update content on the event card
-    eventCards.forEach((card, index) => {
-        card.addEventListener('mouseenter', () => {
-            currentIndex = index;
-            updateCardContent(currentIndex);
-            updateActiveCard(currentIndex);
-        });
-    });
-
     // Arrow functionality to navigate through content
     if (leftArrow && rightArrow) {
         leftArrow.addEventListener('click', () => {
@@ -322,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCardContent(currentIndex);
     updateActiveCard(currentIndex);
 });
-
 
 // Event card mobilvy
 document.addEventListener('DOMContentLoaded', () => {
@@ -392,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Add scroll event listener
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -413,7 +404,7 @@ window.addEventListener('scroll', () => {
             link.classList.remove('dark');
         });
     }
-});
+}, { passive: true });
 
 document.addEventListener("DOMContentLoaded", function () {
     const currentPath = window.location.pathname;
@@ -434,6 +425,7 @@ const descriptions = [
     "Our team is here to help. We know that the day of your event can be stressful and that is where we come in. Staffing your event with top staff is our number one priority. With us you get to relax and enjoy your event, without having to worry about your guests’ needs.",
     "We partner with some of the best event planners, venues and caterers in the industry to bring your dreams to life. Whether you are planning your next big anniversary, wedding or hosting a private dinner, we can help you on each step of the way."
 ];
+
 
 // Function to change the image and text
 let currentImageIndex = 0;
