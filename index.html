@@ -52,10 +52,11 @@
 <!-- Hero Section -->
 <section id="hero">
     <div class="video-container">
-        <video autoplay muted loop playsinline class="hero-video" poster="pictures/video-poster.jpg">
+        <video autoplay muted loop playsinline class="hero-video">
             <source src="pictures/videoproevent.mp4" type="video/mp4">
         </video>
-        
+        <!-- Pausknapp -->
+        <button class="pause-btn" onclick="togglePause()">❚❚</button>
     </div>
     <div class="hero-text">
         <img src="pictures/logo.png" alt="Pro Event Staffing Logo" class="hero-logo">
@@ -331,6 +332,18 @@
         <button class="submit-btn close-popup">CLOSE</button>
     </div>
 </div>
+
+<script>
+    // Funktion för att pausa/återuppta videon
+    function togglePause() {
+        var video = document.querySelector('.hero-video');
+        if (video.paused) {
+            video.play(); // Spela upp videon
+        } else {
+            video.pause(); // Pausa videon
+        }
+    }
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
