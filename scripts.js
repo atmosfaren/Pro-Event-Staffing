@@ -221,46 +221,40 @@ document.getElementById('topic').addEventListener('change', function() {
     topicLabel.textContent = this.value ? selectedTopic : '';
 });
 
+// Quote carousel functionality
 const quotes = [
     { text: "We sometimes have complicated events with complicated clients, but Pro Event Staffing simplifies things.", author: "Jack, Lawrence Craig" },
     { text: "Most supportive team I’ve worked with!", author: "Tom, The Met museum" }
 ];
 
 let currentQuoteIndex = 0;
-
 function changeQuote() {
-    const quoteContainer = document.querySelector('.quote-container');
-    
-    // Remove all previous quotes
-    const previousQuotes = document.querySelectorAll('.quote');
-    previousQuotes.forEach(quote => {
-        quote.classList.remove('active'); // Remove active class
-        setTimeout(() => {
-            quote.remove(); // Remove quote after animation duration
-        }, 1000); // Match this timeout with the animation duration
-    });
-
-    // Get the next quote
-    const currentQuote = quotes[currentQuoteIndex];
-    const newQuote = document.createElement('div');
-    newQuote.classList.add('quote'); // Add quote class but not active initially
-    newQuote.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
-
-    // Append the new quote to the container
-    quoteContainer.appendChild(newQuote);
-
-    // Trigger the animation by adding the active class
-    setTimeout(() => {
-        newQuote.classList.add('active'); // Add active class to trigger the animation
-    }, 10); // Slight delay to ensure the DOM has time to update
-
-    // Set the index for the next quote
-    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    const quoteTextElement = document.getElementById("quote-text");
+    if (quoteTextElement) {
+        const currentQuote = quotes[currentQuoteIndex];
+        quoteTextElement.innerHTML = `<span class="quote-text">“${currentQuote.text}”</span><span class="author">– ${currentQuote.author}</span>`;
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    }
 }
 
-// Start the quote carousel with a delay
+// Start the quote carousel
 setInterval(changeQuote, 3000);
-changeQuote(); // Run it once immediately
+changeQuote();
+
+// Shuffle images in a row on hover
+function shuffleImagesInRow(row) {
+    const images = Array.from(row.getElementsByClassName('team-img'));
+    const shuffledImages = images.sort(() => Math.random() - 0.5);
+    shuffledImages.forEach(image => row.appendChild(image));
+}
+
+const teamImages = document.querySelectorAll('.team-img');
+teamImages.forEach(image => {
+    image.addEventListener('mouseenter', (event) => {
+        const row = event.target.closest('.team-row');
+        shuffleImagesInRow(row);
+    });
+});
 
 // Event card behavior
 document.addEventListener('DOMContentLoaded', () => {
