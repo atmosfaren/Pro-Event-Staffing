@@ -368,10 +368,150 @@ function changeQuote() {
         }, 2000); // Match this with CSS transition duration
     }
 }
+
 // Start the quote carousel
 setInterval(changeQuote, 3000);
 changeQuote(); // Run initially to show first quote
 </script>
+<script>
+// Event card behavior
+document.addEventListener('DOMContentLoaded', () => {
+    const eventCards = document.querySelectorAll('.event-card');
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+
+    const content = [
+        {
+            title: "FROM PLANNING",
+            text: "We partner with top event planners, venues, and caterers to bring your dreams to life. We help with anniversaries, weddings, and private dinners."
+        },
+        {
+            title: "TO PREPARING",
+            text: "Our team ensures your event runs smoothly. We focus on staffing to let you relax and enjoy the event."
+        },
+        {
+            title: "TO EXECUTING",
+            text: "We provide expert execution through strong partnerships with planners, venues, and caterers for flawless events."
+        }
+    ];
+
+    let currentIndex = 0;
+
+    // Update the content of the text box based on the index
+    function updateCardContent(index) {
+        const card = document.getElementById('event-card');
+        if (card) {
+            const { title, text } = content[index];
+            card.querySelector('h4').textContent = title;
+            card.querySelector('p').textContent = text;
+        }
+    }
+
+    // Update the active class on the event cards
+    function updateActiveCard(index) {
+        eventCards.forEach((card, i) => card.classList.toggle('active', i === index));
+    }
+
+    // Hover to update content on the event card
+    eventCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => {
+            currentIndex = index;
+            updateCardContent(currentIndex);
+            updateActiveCard(currentIndex);
+        });
+    });
+
+    // Arrow functionality to navigate through content
+    if (leftArrow && rightArrow) {
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? content.length - 1 : currentIndex - 1;
+            updateCardContent(currentIndex);
+            updateActiveCard(currentIndex);
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex === content.length - 1) ? 0 : currentIndex + 1;
+            updateCardContent(currentIndex);
+            updateActiveCard(currentIndex);
+        });
+    }
+
+    // Initialize content and active card
+    updateCardContent(currentIndex);
+    updateActiveCard(currentIndex);
+});
+
+
+// Event card mobilvy
+document.addEventListener('DOMContentLoaded', () => {
+    const eventCards = document.querySelectorAll('.event-card');
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+
+    // Initial index
+    let currentIndex = 0;
+
+    // Update the content of the text box based on the index
+    function updateCardContent(index) {
+        const content = [
+            {
+                title: "FROM PLANNING",
+                text: "We partner with top event planners, venues, and caterers to bring your dreams to life. We help with anniversaries, weddings, and private dinners."
+            },
+            {
+                title: "TO PREPARING",
+                text: "Our team ensures your event runs smoothly. We focus on staffing to let you relax and enjoy the event."
+            },
+            {
+                title: "TO EXECUTING",
+                text: "We provide expert execution through strong partnerships with planners, venues, and caterers for flawless events."
+            }
+        ];
+
+        const { title, text } = content[index];
+        const card = document.getElementById('event-card');
+        card.querySelector('h4').textContent = title;
+        card.querySelector('p').textContent = text;
+    }
+
+    // Update the active card based on index
+    function updateActiveCard(index) {
+        eventCards.forEach(card => card.classList.remove('active'));
+        eventCards[index].classList.add('active');
+    }
+
+    // Arrow functionality to navigate through cards
+    leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? eventCards.length - 1 : currentIndex - 1;
+        updateCardContent(currentIndex);
+        updateActiveCard(currentIndex);
+    });
+
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex === eventCards.length - 1) ? 0 : currentIndex + 1;
+        updateCardContent(currentIndex);
+        updateActiveCard(currentIndex);
+    });
+
+    // Klickfunktion på bilderna
+    eventCards.forEach((card, index) => {
+        const image = card.querySelector('img');
+        if (image) {
+            image.addEventListener('click', () => {
+                // Klicka på bilden och gå till nästa eller föregående kort
+                currentIndex = (index === eventCards.length - 1) ? 0 : index + 1;
+                updateCardContent(currentIndex);
+                updateActiveCard(currentIndex);
+            });
+        }
+    });
+
+    // Initialize the content for the first card
+    updateCardContent(currentIndex);
+    updateActiveCard(currentIndex);
+});
+</script>
+
 
     <script src="scripts.js"></script>
     
