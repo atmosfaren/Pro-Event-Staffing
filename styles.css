@@ -1,15 +1,21 @@
 /* General Styles */
 body {
-    font-family: "SUSSIE INT'l", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SUSSIE INT'l", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #fff;
     color: #000;
+    line-height: 1.6;
 }
 
 html, body {
     overflow-x: hidden; /* Förhindrar horisontell scroll på hela sidan */
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .whoweare-page #team #team-images-container {
@@ -34,8 +40,9 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: rgba(255, 255, 255, 0.1);
     z-index: -1;
     transition: backdrop-filter 0.3s ease;
-
-    /* Prefix för äldre webbläsare */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
@@ -305,12 +312,13 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Video styling */
 .hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the video covers the entire section */
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transform: translateZ(0); /* För bättre rendering på iOS */
 }
 
 /* Logo styling */
@@ -348,7 +356,7 @@ h1, h2, h3, h4, h5, h6, p {
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    max-width: 715px;
+    max-width: 915px;
     height: 95%;
 }
 
@@ -386,7 +394,6 @@ h1, h2, h3, h4, h5, h6, p {
     height: 100%;
     width: 70%; /* Sätt bredden till 60% eller annan valfri värde */
     max-width: 715px; /* Valfritt, du kan justera max bredd */
-    line-height: 1.6;
 }
 
 /* Title (h2) */
@@ -478,9 +485,8 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .hero2-left, .hero2-right {
-        width: 100%;  /* Båda sektionerna fyller hela bredden */
-        max-width: none;
-        height: 50%;
+        width: 100%;
+        flex-direction: column;
     }
 
     .hero2-left {
@@ -488,10 +494,9 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .text-box {
-        width: 95%; /* Text-boxen tar upp hela bredden på mindre skärmar */
-        padding: 1%;  /* Ingen padding */
-        margin: 0;   /* Ingen margin */
-        height: 70%;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: auto; /* Anpassa bredden för mindre skärmar */
     }
 
     /* Ändra avståndet mellan elementen i text-boxen för att göra det mer kompakt */
@@ -683,7 +688,7 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: flex-start;
     align-items: flex-start; /* Align items to the left */
     height: 100px; 
-    width: 1400px; 
+    width: 1430px; 
     margin: 0 auto; 
     position: relative; /* Gör det möjligt att använda z-index */
     z-index: 10; /* Gör att denna sektion visas över andra element */
@@ -692,15 +697,13 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Fade transition for the quotes */
 .quote {
-    font-size: 16px;
+    font-size: 14px;
     color: #6B6B6B;
     transition: opacity 1s ease-in-out;
     text-align: left; 
-    width: 90%;
-    padding: 20px;
+    width: 80%;
+    padding: 100px;
     margin-right: 20px;
-    margin-top: -50px;
-    margin-bottom: -50px;
 }
 
 /* Style for the quote text */
@@ -712,7 +715,7 @@ h1, h2, h3, h4, h5, h6, p {
 /* Style for the author name */
 .author {
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     color: #888;
     margin-top: 5px;
     padding: 10px;
@@ -721,14 +724,14 @@ h1, h2, h3, h4, h5, h6, p {
 /* Gör hela sektionen 100% bred */
 #new-clients {
     width: 100%;
-    padding: 20px 0; /* Utrymme ovanför och under innehållet */
+    padding: 0px 0; /* Utrymme ovanför och under innehållet */
     padding-left: 20px;
 }
 
 /* Centrera innehållet horisontellt */
 .new-client-list {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap; /* Gör att bilderna radbryts om det behövs */
     gap: 50px; /* Avstånd mellan bilderna */
     max-width: 1430px; /* Begränsa bredden på innehållet */
@@ -737,7 +740,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Styling för bilderna (valfritt) */
 .new-client-list img {
-    max-width: 220px; /* Begränsa bildens storlek */
+    max-width: 100px; /* Begränsa bildens storlek */
     height: auto;
     object-fit: contain; /* Bevara proportioner */
 }
@@ -1023,7 +1026,7 @@ footer a .arrow {
 }
 
 .form-section {
-    max-width: 615px;
+    max-width: 490px;
 }
 
 .form-content-box {
@@ -1485,11 +1488,26 @@ footer h3 {
     }
 
     .new-client-list {
-        gap: 20px; /* Minska avståndet mellan bilderna */
+        gap: 40px; /* Minska avståndet mellan bilderna */
     }
 
     .new-client-list img {
         max-width: 90px; /* Minska bildstorleken för att passa mindre skärmar */
+    }
+
+    .quote {
+        width: 90%;
+        padding-left: 20px;
+        margin-top: -30%;
+    }
+
+    .quote-container {
+        height: 10px;
+        padding: 0;
+    }
+
+    .form-section {
+        width: 100%;
     }
 }
 
